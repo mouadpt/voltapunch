@@ -14,7 +14,7 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "settings": {
-        "text": "Portes de envio grátis em todas as encomendas acima de 100 €",
+        "text": "Portes de envio grátis em todas as encomendas acima de 70€",
         "link": "",
         "menu": "",
         "text_size": "sm",
