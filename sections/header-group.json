@@ -1,1 +1,239 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","settings":{"text":"Portes de envio grátis em todas as encomendas acima de 100 €","link":"","menu":"","text_size":"sm","show_social":true,"enable_language_selector":false,"enable_country_selector":false,"enable_country_selector_flag":false,"color_scheme":"background-2","remove_border":false,"spacing_mode":"desktop","spacing_top":1.3,"spacing_bottom":1.3,"spacing_top_mobile":1.3,"spacing_bottom_mobile":1.3,"show_on_desktop":true,"show_on_mobile":true,"hide_if_empty":false}},"header":{"type":"header","blocks":{"megamenu":{"type":"megamenu","settings":{"menu_item":"Comprar por Categoria","side_position":"right","side_items_heading":"","product_list":[],"collection_list":[],"side_title":"Essenciais do dia a dia","side_text":"<p>Poupe até 30%<\/p>","side_url":"shopify:\/\/collections","side_title_2":"","side_text_2":"","side_url_2":"","side_title_3":"","side_text_3":"","side_url_3":"","side_title_4":"","side_text_4":"","side_url_4":"","show_compact_banners":false}},"badge-1":{"type":"badge","settings":{"badge_menu_item":"Centro de Ajuda","label":"Novo","text_color":"#ffffff","background_color":"#39b5fb"}},"badge-2":{"type":"badge","settings":{"badge_menu_item":"Ofertas especiais","label":"Já disponível","text_color":"#ffcc00","background_color":"#232323"}}},"block_order":["megamenu","badge-1","badge-2"],"settings":{"logo":"shopify:\/\/shop_images\/NINETTA_3.svg","mobile_logo":"shopify:\/\/shop_images\/NINETTA_3.svg","logo_width":160,"mobile_logo_width":150,"logo_text":"","logo_slogan":"","promo_icon":"chat","promo_title":"<p>932 887 157<\/p>","promo_text":"<p><a href=\"#\" title=\"mailto:support@example.com\">contact@voltapunch.com<\/a><\/p>","menu_vertical_tabs":"","menu_vertical_tabs_label":"Categorias","menu_vertical_tabs_icon":"menu","menu_vertical_tabs_background":"","menu_vertical_tabs_text_color":"","menu":"main-menu","menu_right":"","main_menu_nav_font_size":13,"menu_main_nav_uppercase":true,"menu_main_align_center":false,"menu_inline_expansion":false,"menu_mobile":"","menu_mobile_expand_on_arrow":true,"menu_mobile_position":"end","menu_font":"body","enable_language_selector":true,"enable_country_selector":true,"enable_country_selector_flag":true,"mini_cart_icon":"cart","redirect_to_cart":false,"mini_cart_show_totals":false,"search_display":"show","search_label":"","account_link_text_logged_in":"","account_link_text_logged_out":"","enable_sticky_header":true,"sticky_header_always_on":true,"collapse_navigation":false,"header_color_scheme":"scheme-e7b82ab6-c85b-4c50-8a1a-c2d1f4fc2db3","navigation_color_scheme":"accent-1","navigation_remove_border":false,"navigation_submenu_color_scheme":"background-1","mobile_navigation_color_scheme":"background-1","spacing_mode":"desktop","spacing_top":2.4,"spacing_bottom":2.4,"spacing_top_mobile":2,"spacing_bottom_mobile":2,"logo_homepage_tag":"h1"}},"announcement-bar-secondary":{"type":"announcement-bar-secondary","settings":{"text":"","link":"","text_size":"sm","color_scheme":"background-2","remove_border":false,"spacing_mode":"desktop","spacing_top":1.3,"spacing_bottom":1.3,"spacing_top_mobile":1.3,"spacing_bottom_mobile":1.3,"show_on_desktop":true,"show_on_mobile":true}},"header-features":{"type":"header-features","blocks":{"feature-1":{"type":"feature","settings":{"icon":"truck","title":"Portes de envio grátis","text":""}},"feature-2":{"type":"feature","settings":{"icon":"shield","title":"Produtos com garantia","text":""}},"feature-3":{"type":"feature","settings":{"icon":"assembly","title":"Qualidade líder do setor","text":""}},"feature-4":{"type":"feature","settings":{"icon":"credit-card","title":"Pagamentos seguros","text":""}}},"block_order":["feature-1","feature-2","feature-3","feature-4"],"settings":{"inline":true,"stack_on_mobile":false,"auto_rotate":true,"icon_size":"small","content_color_scheme":"","color_scheme":"scheme-e7b82ab6-c85b-4c50-8a1a-c2d1f4fc2db3","spacing_mode":"desktop","spacing_top":10,"spacing_bottom":10,"spacing_top_mobile":36,"spacing_bottom_mobile":36,"show_on_desktop":true,"show_on_mobile":true,"hide_if_empty":false}},"breadcrumbs":{"type":"breadcrumbs","name":"t:sections.breadcrumbs.name","settings":{"separator":"»","show_product_collection":false,"color_scheme":"scheme-e7b82ab6-c85b-4c50-8a1a-c2d1f4fc2db3","spacing_mode":"desktop","spacing_top":0,"spacing_bottom":0,"spacing_top_mobile":0,"spacing_bottom_mobile":0,"show_on_desktop":true,"show_on_mobile":true}}},"order":["announcement-bar","header","announcement-bar-secondary","header-features","breadcrumbs"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Portes de envio grátis em todas as encomendas acima de 100 €",
+        "link": "",
+        "menu": "",
+        "text_size": "sm",
+        "show_social": true,
+        "enable_language_selector": false,
+        "enable_country_selector": false,
+        "enable_country_selector_flag": false,
+        "color_scheme": "background-2",
+        "remove_border": false,
+        "spacing_mode": "desktop",
+        "spacing_top": 1.3,
+        "spacing_bottom": 1.3,
+        "spacing_top_mobile": 1.3,
+        "spacing_bottom_mobile": 1.3,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_if_empty": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "megamenu": {
+          "type": "megamenu",
+          "settings": {
+            "menu_item": "Comprar por Categoria",
+            "side_position": "right",
+            "side_items_heading": "",
+            "product_list": [],
+            "collection_list": [],
+            "side_title": "Essenciais do dia a dia",
+            "side_text": "<p>Poupe até 30%</p>",
+            "side_url": "shopify://collections",
+            "side_title_2": "",
+            "side_text_2": "",
+            "side_url_2": "",
+            "side_title_3": "",
+            "side_text_3": "",
+            "side_url_3": "",
+            "side_title_4": "",
+            "side_text_4": "",
+            "side_url_4": "",
+            "show_compact_banners": false
+          }
+        },
+        "badge-1": {
+          "type": "badge",
+          "settings": {
+            "badge_menu_item": "Centro de Ajuda",
+            "label": "Novo",
+            "text_color": "#ffffff",
+            "background_color": "#39b5fb"
+          }
+        },
+        "badge-2": {
+          "type": "badge",
+          "settings": {
+            "badge_menu_item": "Ofertas especiais",
+            "label": "Já disponível",
+            "text_color": "#ffcc00",
+            "background_color": "#232323"
+          }
+        }
+      },
+      "block_order": [
+        "megamenu",
+        "badge-1",
+        "badge-2"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/NINETTA_3.svg",
+        "mobile_logo": "shopify://shop_images/NINETTA_3.svg",
+        "logo_width": 160,
+        "mobile_logo_width": 150,
+        "logo_text": "",
+        "logo_slogan": "",
+        "promo_icon": "chat",
+        "promo_title": "<p>932 887 157</p>",
+        "promo_text": "<p><a href=\"#\" title=\"mailto:support@example.com\">contact@voltapunch.com</a></p>",
+        "menu_vertical_tabs": "",
+        "menu_vertical_tabs_label": "Categorias",
+        "menu_vertical_tabs_icon": "menu",
+        "menu_vertical_tabs_background": "",
+        "menu_vertical_tabs_text_color": "",
+        "menu": "main-menu",
+        "menu_right": "",
+        "main_menu_nav_font_size": 13,
+        "menu_main_nav_uppercase": true,
+        "menu_main_align_center": false,
+        "menu_inline_expansion": false,
+        "menu_mobile": "",
+        "menu_mobile_expand_on_arrow": true,
+        "menu_mobile_position": "end",
+        "menu_font": "body",
+        "enable_language_selector": true,
+        "enable_country_selector": true,
+        "enable_country_selector_flag": true,
+        "mini_cart_icon": "cart",
+        "redirect_to_cart": false,
+        "mini_cart_show_totals": false,
+        "search_display": "show",
+        "search_label": "",
+        "account_link_text_logged_in": "",
+        "account_link_text_logged_out": "",
+        "enable_sticky_header": true,
+        "sticky_header_always_on": true,
+        "collapse_navigation": false,
+        "header_color_scheme": "scheme-e7b82ab6-c85b-4c50-8a1a-c2d1f4fc2db3",
+        "navigation_color_scheme": "accent-1",
+        "navigation_remove_border": false,
+        "navigation_submenu_color_scheme": "background-1",
+        "mobile_navigation_color_scheme": "background-1",
+        "spacing_mode": "desktop",
+        "spacing_top": 2.4,
+        "spacing_bottom": 2.4,
+        "spacing_top_mobile": 2,
+        "spacing_bottom_mobile": 2,
+        "logo_homepage_tag": "h1"
+      }
+    },
+    "announcement-bar-secondary": {
+      "type": "announcement-bar-secondary",
+      "settings": {
+        "text": "",
+        "link": "",
+        "text_size": "sm",
+        "color_scheme": "background-2",
+        "remove_border": false,
+        "spacing_mode": "desktop",
+        "spacing_top": 1.3,
+        "spacing_bottom": 1.3,
+        "spacing_top_mobile": 1.3,
+        "spacing_bottom_mobile": 1.3,
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    },
+    "header-features": {
+      "type": "header-features",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "title": "Portes de envio grátis",
+            "text": ""
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Produtos com garantia",
+            "text": ""
+          }
+        },
+        "feature-3": {
+          "type": "feature",
+          "settings": {
+            "icon": "assembly",
+            "title": "Qualidade líder do setor",
+            "text": ""
+          }
+        },
+        "feature-4": {
+          "type": "feature",
+          "settings": {
+            "icon": "credit-card",
+            "title": "Pagamentos seguros",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4"
+      ],
+      "settings": {
+        "inline": false,
+        "stack_on_mobile": false,
+        "auto_rotate": true,
+        "icon_size": "small",
+        "content_color_scheme": "",
+        "color_scheme": "scheme-e7b82ab6-c85b-4c50-8a1a-c2d1f4fc2db3",
+        "spacing_mode": "mobile",
+        "spacing_top": 0,
+        "spacing_bottom": 0,
+        "spacing_top_mobile": 0,
+        "spacing_bottom_mobile": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true,
+        "hide_if_empty": false
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "name": "t:sections.breadcrumbs.name",
+      "settings": {
+        "separator": "»",
+        "show_product_collection": false,
+        "color_scheme": "scheme-e7b82ab6-c85b-4c50-8a1a-c2d1f4fc2db3",
+        "spacing_mode": "desktop",
+        "spacing_top": 0,
+        "spacing_bottom": 0,
+        "spacing_top_mobile": 0,
+        "spacing_bottom_mobile": 0,
+        "show_on_desktop": true,
+        "show_on_mobile": true
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "announcement-bar-secondary",
+    "header-features",
+    "breadcrumbs"
+  ]
+}

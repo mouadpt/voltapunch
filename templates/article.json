@@ -1,1 +1,61 @@
-{"sections":{"main-article":{"type":"main-article","blocks":{"featured_image":{"type":"featured_image","settings":{}},"meta":{"type":"meta","settings":{"show_date":true,"show_author":true}},"title":{"type":"title","settings":{}},"content":{"type":"content","settings":{}},"share":{"type":"share","settings":{"share_label":"Partilhar"}}},"block_order":["featured_image","meta","title","content","share"],"settings":{"comments_per_page":10,"spacing_mode":"desktop","spacing_top":60,"spacing_bottom":60,"spacing_top_mobile":48,"spacing_bottom_mobile":48}}},"order":["main-article"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-article": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {}
+        },
+        "meta": {
+          "type": "meta",
+          "settings": {
+            "show_date": true,
+            "show_author": true
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Partilhar"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "meta",
+        "title",
+        "content",
+        "share"
+      ],
+      "settings": {
+        "comments_per_page": 10,
+        "spacing_mode": "desktop",
+        "spacing_top": 60,
+        "spacing_bottom": 60,
+        "spacing_top_mobile": 48,
+        "spacing_bottom_mobile": 48
+      }
+    }
+  },
+  "order": [
+    "main-article"
+  ]
+}
