@@ -204,7 +204,7 @@
         "spacing_mode": "mobile",
         "spacing_top": 0,
         "spacing_bottom": 0,
-        "spacing_top_mobile": 0,
+        "spacing_top_mobile": 16,
         "spacing_bottom_mobile": 0,
         "show_on_desktop": true,
         "show_on_mobile": true,
