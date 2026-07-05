@@ -38,11 +38,7 @@
             "text_4": "",
             "icon_4": "",
             "color_scheme": "none",
-            "show_bottom_divider": false,
-            "custom_icon": "",
-            "custom_icon_2": "",
-            "custom_icon_3": "",
-            "custom_icon_4": ""
+            "show_bottom_divider": false
           }
         },
         "price": {
@@ -67,11 +63,11 @@
           "settings": {
             "picker_type": "button",
             "picker_equal_width": false,
+            "picker_size": "normal",
+            "picker_shape": "inherit",
             "hide_single_variant": false,
             "out_of_stock_variants": "show",
-            "show_bottom_divider": false,
-            "picker_size": "normal",
-            "picker_shape": "inherit"
+            "show_bottom_divider": false
           }
         },
         "buy_buttons": {
@@ -81,8 +77,8 @@
             "show_add_to_cart": true,
             "show_buy_now": true,
             "show_gift_card_recipient": false,
-            "show_bottom_divider": false,
-            "button_color_scheme": "background-1"
+            "button_color_scheme": "background-1",
+            "show_bottom_divider": false
           }
         },
         "complementary": {
@@ -126,14 +122,12 @@
             "highlight_3_text": "Qualidade líder do setor",
             "highlights_layout": "horizontal",
             "color_scheme": "color-background-1",
-            "show_bottom_divider": true,
-            "highlight_1_custom_icon": "",
-            "highlight_2_custom_icon": "",
-            "highlight_3_custom_icon": ""
+            "show_bottom_divider": true
           }
         },
         "extra": {
           "type": "extra",
+          "disabled": true,
           "settings": {
             "text": "<p>Tem dúvidas?</p><p>Não hesite em <a href=\"#\" title=\"Contact Us\">entrar em contacto</a></p>",
             "show_facebook": true,
@@ -146,11 +140,10 @@
           "type": "contact_details",
           "settings": {
             "heading": "Fale com um especialista!",
-            "image": "",
-            "video_chat_link": "#",
-            "chat_link": "#",
-            "email": "example@example.com",
-            "phone_number": "+55 555-12345",
+            "video_chat_link": "https://wa.link/f3rmjs",
+            "chat_link": "https://wa.link/f3rmjs",
+            "email": "contact@voltapunch.com",
+            "phone_number": "+351 932 887 157",
             "color_scheme": "background-2",
             "show_bottom_divider": false
           }
@@ -160,8 +153,7 @@
           "settings": {
             "title": "Descrição",
             "icon": "info",
-            "expanded": true,
-            "custom_icon": ""
+            "expanded": true
           }
         },
         "details": {
@@ -177,10 +169,10 @@
             "show_barcode": false,
             "barcode_label": "Código de barras",
             "metafields": "User manual: custom.user_manual\nSafety instructions: custom.safety_instructions",
+            "values_alignment": "right",
             "text": "<p>Pode adicionar texto adicional antes ou depois desta tabela.</p>",
             "text_position": "after",
-            "show_bottom_divider": false,
-            "values_alignment": "right"
+            "show_bottom_divider": false
           }
         },
         "expandable-1": {
@@ -190,8 +182,7 @@
             "icon": "globe",
             "text": "<p><strong>Encomende até às 14h00 para receber no dia útil seguinte!</strong> Na maioria dos casos, trabalhamos com transportadoras com serviço de 24 horas para que receba a sua encomenda a tempo.</p><p>Existe uma taxa de €4,99 para entregas em encomendas abaixo de €50. Poderão ser aplicadas taxas adicionais pelas nossas transportadoras para entregas em zonas remotas, podendo ser cobrada uma sobretaxa para cobrir o transporte até essas áreas.</p>",
             "page": "",
-            "expanded": false,
-            "custom_icon": ""
+            "expanded": false
           }
         },
         "expandable-2": {
@@ -201,8 +192,7 @@
             "icon": "shield",
             "text": "<p>O seu produto está coberto por uma garantia de 12 meses, ou mais se optou pela garantia alargada. Certifique-se de que regista o seu produto.</p>",
             "page": "",
-            "expanded": false,
-            "custom_icon": ""
+            "expanded": false
           }
         },
         "reviews": {
@@ -233,14 +223,15 @@
         "reviews"
       ],
       "settings": {
+        "preselect_variant": true,
         "hide_variants": false,
         "arrow_navigation": false,
+        "thumbnails_position": "left",
         "thumbnail_navigation": true,
         "image_zoom_type": "lightbox_zoom_hover",
         "image_ratio": "adapt",
-        "image_disclaimer": "<p><strong>Aviso:</strong> As cores reais do produto podem variar ligeiramente das imagens apresentadas devido a diferentes definições de monitor e condições de iluminação durante as sessões fotográficas.</p>",
+        "image_disclaimer": "",
         "collapse_other_expandables": false,
-        "thumbnails_position": "left",
         "spacing_mode": "desktop",
         "spacing_top": 60,
         "spacing_bottom": 60,
@@ -261,14 +252,14 @@
         "variants_per_page": 10,
         "show_variant_images": true,
         "color_scheme": "",
+        "spacing_mode": "desktop",
         "spacing_top": 60,
         "spacing_bottom": 60,
+        "spacing_top_mobile": 48,
+        "spacing_bottom_mobile": 48,
         "heading_tag": "h2",
         "show_on_desktop": true,
-        "show_on_mobile": true,
-        "spacing_mode": "desktop",
-        "spacing_top_mobile": 48,
-        "spacing_bottom_mobile": 48
+        "show_on_mobile": true
       }
     },
     "product-recommendations": {
@@ -285,12 +276,12 @@
         "show_stock": true,
         "show_rating": true,
         "color_scheme": "background-1",
+        "spacing_mode": "desktop",
         "spacing_top": 60,
         "spacing_bottom": 60,
-        "heading_tag": "h2",
-        "spacing_mode": "desktop",
         "spacing_top_mobile": 48,
-        "spacing_bottom_mobile": 48
+        "spacing_bottom_mobile": 48,
+        "heading_tag": "h2"
       }
     },
     "recently-viewed-products": {
@@ -310,14 +301,14 @@
         "stack_on_mobile": false,
         "mobile_columns": "1",
         "color_scheme": "background-1",
+        "spacing_mode": "desktop",
         "spacing_top": 60,
         "spacing_bottom": 60,
+        "spacing_top_mobile": 48,
+        "spacing_bottom_mobile": 48,
         "heading_tag": "h2",
         "show_on_desktop": true,
-        "show_on_mobile": true,
-        "spacing_mode": "desktop",
-        "spacing_top_mobile": 48,
-        "spacing_bottom_mobile": 48
+        "show_on_mobile": true
       }
     }
   },
