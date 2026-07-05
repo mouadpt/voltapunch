@@ -112,8 +112,8 @@
         "menu-2": {
           "type": "menu",
           "settings": {
-            "title": "Categorias Populares",
-            "menu": ""
+            "title": "Políticas",
+            "menu": "polticas"
           }
         },
         "text-2": {
