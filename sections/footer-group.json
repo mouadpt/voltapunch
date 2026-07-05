@@ -19,7 +19,7 @@
           "settings": {
             "icon": "globe",
             "title": "Portes de envio grátis",
-            "text": "<p>Para todas as encomendas acima de 100 €!</p>"
+            "text": "<p>Para todas as encomendas acima de 70€!</p>"
           }
         },
         "feature-2": {
@@ -43,7 +43,7 @@
           "settings": {
             "icon": "star-empty",
             "title": "TrustScore 4.9",
-            "text": "<p>Mais de 3000 <a href=\"#\" title=\"#\">avaliações no Trustpilot</a></p>"
+            "text": "<p>Mais de 3000 </p>"
           }
         }
       },
