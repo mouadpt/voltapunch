@@ -3,7 +3,7 @@
     "featured-collection-1": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Battery screwdrivers",
+        "heading": "Aparafusadoras a bateria",
         "heading_size": "md",
         "subheading": "",
         "headings_alignment": "left",
@@ -46,10 +46,10 @@
       "settings": {
         "background_image": "",
         "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
-        "heading": "Flash sale!",
+        "heading": "Venda relâmpago!",
         "heading_size": "md",
-        "text": "<p>Use this text to create urgency and promote limited time offers of your products and services.</p>",
-        "button_label": "Shop now!",
+        "text": "<p>Utilize este texto para criar urgência e promover ofertas por tempo limitado dos seus produtos e serviços.</p>",
+        "button_label": "Comprar agora!",
         "link": "",
         "button_type_link": false,
         "end_date": "2026-07-09",
@@ -75,7 +75,7 @@
     "featured-collection-2": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Cordless tool kits",
+        "heading": "Kits de ferramentas sem fio",
         "heading_size": "md",
         "subheading": "",
         "headings_alignment": "left",
@@ -116,7 +116,7 @@
     "featured-collection-3": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Jig saws",
+        "heading": "Serras de vaivém",
         "heading_size": "md",
         "subheading": "",
         "headings_alignment": "left",
@@ -157,7 +157,7 @@
     "featured-collection-4": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Rotary hammers",
+        "heading": "Martelos rotativos",
         "heading_size": "md",
         "subheading": "",
         "headings_alignment": "left",

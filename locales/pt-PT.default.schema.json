@@ -95,10 +95,10 @@
           "label": "Selo de oferta"
         },
         "color_badge_instock": {
-          "label": "Selo de produto em estoque"
+          "label": "Selo de produto em stock"
         },
         "color_badge_limitedstock": {
-          "label": "Selo de estoque limitado"
+          "label": "Selo de stock limitado"
         },
         "color_badge_outofstock": {
           "label": "Selo de produto esgotado"
@@ -111,7 +111,7 @@
         },
         "header_prices": {
           "content": "Preços",
-          "info": "Afeta as cores dos preços em todas as seções, exceto nos cartões de produtos. Os preços nos cartões de produtos podem ser editados nos esquemas de cores."
+          "info": "Afeta as cores dos preços em todas as secções, exceto nos cartões de produtos. Os preços nos cartões de produtos podem ser editados nos esquemas de cores."
         },
         "price_color": {
           "label": "Preço",
@@ -165,18 +165,18 @@
       "settings": {
         "breadcrumbs_enabled": {
           "label": "Ativar trilhas de navegação",
-          "info": "As trilhas de navegação aparecerão em todas as páginas do site, exceto na página inicial, página do carrinho, página da lista de coleções, página 404 e página de senha."
+          "info": "As trilhas de navegação aparecerão em todas as páginas do site, exceto na página inicial, página do carrinho, página da lista de coleções, página 404 e página de palavra-passe."
         },
         "collection_product_url_enabled": {
           "label": "Ativar URLs coleção-produto",
-          "info": "Ativar esta opção tem implicações significativas para SEO. Recomenda-se mantê-la desativada. Ative-a somente se você entender os riscos. [Saiba mais](https://shopify.dev/docs/api/liquid/filters/within)"
+          "info": "Ativar esta opção tem implicações significativas para SEO. Recomenda-se mantê-la desativada. Ative-a somente se compreender os riscos. [Saiba mais](https://shopify.dev/docs/api/liquid/filters/within)"
         },
         "border_style": {
           "label": "Estilo da borda",
           "info": "Define o estilo da borda de todos os cartões e outros elementos da loja.",
           "options": {
             "label_1": "Quadrado",
-            "label_2": "Arrendondado"
+            "label_2": "Arredondado"
           }
         },
         "catalog_enabled": {
@@ -189,11 +189,11 @@
         },
         "button_top_enabled": {
           "label": "Ativar botão rolar até o início",
-          "info": "Apenas se aplica à área de trabalho. O botão rolar até o início aparecerá em todas as páginas de seu site assim que um visitante rolar a página para baixo. Basta clicar no botão para rolar a tela até o início da página do site."
+          "info": "Apenas se aplica à computador. O botão rolar até o início aparecerá em todas as páginas do o seu site assim que um visitante rolar a página para baixo. Basta clicar no botão para rolar o ecrã até o início da página do site."
         },
         "remove_card_ribbon": {
           "label": "Remover a fita do cartão",
-          "info": "Remove a fita decorativa no canto superior esquerdo dos layouts de cartões em algumas seções (listas de coleções, banners etc)."
+          "info": "Remove a fita decorativa no canto superior esquerdo dos layouts de cartões em algumas secções (listas de coleções, banners etc)."
         }
       }
     },
@@ -211,7 +211,7 @@
           "label": "Forma",
           "info": "Esta configuração também afetará a forma das amostras de cor e dos botões de variação",
           "options": {
-            "label_1": "Arrendondado",
+            "label_1": "Arredondado",
             "label_2": "Quadrado",
             "label_3": "Cápsula"
           }
@@ -241,17 +241,17 @@
       "settings": {
         "only_x_left": {
           "label": "Limite de últimas unidades",
-          "info": "Quando o inventário de uma variante for menor ou igual a este número, o selo \"Restam apenas X\" será exibido no lugar do selo \"Em estoque\". Coloque 0 para desativar."
+          "info": "Quando o inventário de uma variante for menor ou igual a este número, o selo \"Restam apenas X\" será exibido no lugar do selo \"Em stock\". Coloque 0 para desativar."
         },
         "show_items_in_stock": {
           "label": "Exibir número de itens",
-          "info": "O selo \"Em estoque\" exibe o número de itens no catálogo e nas páginas dos produtos, independentemente do limite definido acima. Apenas se aplica aos produtos paras os quais \"Rastrear quantidade\" está ativado."
+          "info": "O selo \"Em stock\" exibe o número de itens no catálogo e nas páginas dos produtos, independentemente do limite definido acima. Apenas se aplica aos produtos para os quais \"Monitorizar quantidade\" está ativado."
         },
         "sale_badge_mode": {
           "label": "Selo de oferta",
           "options": {
             "label_1": "Oferta",
-            "label_2": "Porcentagem",
+            "label_2": "Percentagem",
             "label_3": "Nenhum"
           }
         },
@@ -294,7 +294,7 @@
       "name": "Amostra de cores",
       "settings": {
         "paragraph_1": {
-          "content": "Você pode exibir amostras de cores ou imagens no lugar das opções do produto ou filtros de coleção/pesquisa. Você pode usar cores ou imagens. [Saiba mais](https://trulyfinepixels.com/documentation/color-swatches/)"
+          "content": "Pode apresentar amostras de cores ou imagens no lugar das opções do produto ou filtros de coleção/pesquisa. Pode utilizar cores ou imagens. [Saiba mais](https://trulyfinepixels.com/documentation/color-swatches/)"
         },
         "swatches_on_products": {
           "label": "Ativar na página do produto / produto em destaque",
@@ -385,7 +385,7 @@
         },
         "products_two_column_mobile": {
           "label": "Duas colunas em dispositivos móveis",
-          "info": "Quando “Empilhar em dispositivo móvel” está ativado nas seções de listagem de produtos, exibe os produtos em duas colunas em vez de uma."
+          "info": "Quando “Empilhar em dispositivo móvel” está ativado nas secções de listagem de produtos, exibe os produtos em duas colunas em vez de uma."
         },
         "filters_scroll_top": {
           "label": "Rolar para o topo após seleção de filtro",
@@ -449,7 +449,7 @@
         },
         "product_image_crop": {
           "label": "Ativar corte da imagem",
-          "info": "Desative se você quiser que as imagens do produto sejam exibidas na íntegra e não cortadas. Quando a proporção da imagem está definida para \"Adaptar à imagem\", esta opção não tem efeito."
+          "info": "Desative se pretender que as imagens do produto sejam exibidas na íntegra e não cortadas. Quando a proporção da imagem está definida para \"Adaptar à imagem\", esta opção não tem efeito."
         },
         "header_buttons": {
           "content": "Botões"
@@ -550,7 +550,7 @@
         },
         "zero_price_call_link": {
           "label": "Link para solicitar preço",
-          "info": "Cole qualquer URL válida, como a URL da sua página de contato, ou um número discável prefixando-o com “tel:”, por exemplo “tel:+1234567890”"
+          "info": "Cole qualquer URL válida, como a URL da sua página de contacto, ou um número discável prefixando-o com “tel:”, por exemplo “tel:+1234567890”"
         }
       }
     },
@@ -622,15 +622,15 @@
       "name": "Carrinho",
       "settings": {
         "header_1": {
-          "content": "Frete grátis"
+          "content": "Portes de envio grátis"
         },
         "free_shipping_enabled": {
-          "label": "Exibir mensagem de frete grátis",
-          "info": "A ativação exibirá apenas uma mensagem no mini carrinho e na página do carrinho. Você precisará configurar os valores de frete de acordo para que o frete grátis tenha efeito."
+          "label": "Exibir mensagem de portes de envio grátis",
+          "info": "A ativação exibirá apenas uma mensagem no mini carrinho e na página do carrinho. Terá de configurar os taxas de envio de acordo para que o portes de envio grátis tenha efeito."
         },
         "free_shipping_threshold": {
-          "label": "Limite de frete grátis",
-          "info": "Insira a quantidade mínima necessária para frete grátis. Insira apenas um número, nenhum símbolo de moeda ou qualquer outro texto."
+          "label": "Limite de portes de envio grátis",
+          "info": "Insira a quantidade mínima necessária para portes de envio grátis. Insira apenas um número, nenhum símbolo de moeda ou qualquer outro texto."
         },
         "cart_policy_consent_page": {
           "label": "Ative o consentimento da política no carrinho",
@@ -720,13 +720,13 @@
           "label": "Número de colunas"
         },
         "desktop_columns": {
-          "label": "Número de colunas na área de trabalho"
+          "label": "Número de colunas no computador"
         },
         "mobile_columns": {
-          "label": "Número de colunas no celular"
+          "label": "Número de colunas em telemóvel"
         },
         "layout": {
-          "label": "Layout da área de trabalho",
+          "label": "Layout da computador",
           "options": {
             "label_grid": "Grade",
             "label_slider": "Slide",
@@ -747,8 +747,8 @@
           }
         },
         "card_clickable_desktop": {
-          "label": "Toda a área do cartão pode ser clicada na área de trabalho",
-          "info": "Apenas na área de trabalho. Toda a área do cartão pode ser clicada por padrão em dispositivos móveis."
+          "label": "Toda a área do cartão pode ser clicada no computador",
+          "info": "Apenas no computador. Toda a área do cartão pode ser clicada por padrão em dispositivos móveis."
         },
         "move_one_slide": {
           "label": "Mover vários slides de uma vez",
@@ -756,16 +756,16 @@
         },
         "filters_bar_sticky": {
           "label": "Ativar barra de filtros fixa em dispositivos móveis",
-          "info": "A barra de filtros fica visível enquanto os clientes rolam a tela no dispositivo móvel."
+          "info": "A barra de filtros fica visível enquanto os clientes rolam o ecrã no dispositivo móvel."
         }
       },
       "section_spacing": {
-        "heading": "Espaçamento de seção",
+        "heading": "Espaçamento de secção",
         "spacing_mode": {
           "label": "Configurar espaçamento para",
           "options": {
-            "desktop": "Área de trabalho",
-            "mobile": "Celular"
+            "desktop": "Computador",
+            "mobile": "Telemóvel"
           }
         },
         "spacing_top": {
@@ -802,16 +802,16 @@
           "label_custom_icon": "Ícone personalizado",
           "label_ecommerce_shopping_group": "E-commerce e compras",
           "label_payment_finance_group": "Pagamento e finanças",
-          "label_user_account_group": "Usuário e conta",
+          "label_user_account_group": "Utilizador e conta",
           "label_communication_support_group": "Comunicação e suporte",
           "label_navigation_interface_group": "Navegação e interface",
           "label_devices_technology_group": "Dispositivos e tecnologia",
           "label_location_maps_group": "Localização e mapas",
           "label_shipping_logistics_group": "Envio e logística",
-          "label_documents_files_group": "Documentos e arquivos",
-          "label_status_notifications_group": "Status e notificações",
+          "label_documents_files_group": "Documentos e ficheiros",
+          "label_status_notifications_group": "Estado e notificações",
           "label_security_trust_group": "Segurança e confiança",
-          "label_social_platforms_group": "Mídias sociais e plataformas",
+          "label_social_platforms_group": "Redes sociais e plataformas",
           "label_miscellaneous": "Diversos",
           "label_activity": "Atividade",
           "label_add_comment": "Adicionar comentário",
@@ -819,12 +819,12 @@
           "label_arrow_down": "Seta para baixo",
           "label_arrow_left": "Seta para esquerda",
           "label_arrow_right": "Seta para direita",
-          "label_arrow_up": "Seta pra cima",
+          "label_arrow_up": "Seta para cima",
           "label_assembly": "Montagem",
           "label_at": "Em",
           "label_attachment": "Anexo",
-          "label_award": "Prêmio",
-          "label_bag": "Sacola",
+          "label_award": "Prémio",
+          "label_bag": "Saco",
           "label_balloon": "Balão",
           "label_bandcamp": "Bandcamp",
           "label_basket": "Cesta",
@@ -840,7 +840,7 @@
           "label_box_2": "Caixa 2",
           "label_broadcast": "Transmissão",
           "label_brush": "Pincel",
-          "label_camera": "Câmera",
+          "label_camera": "Câmara",
           "label_car": "Carro",
           "label_cart": "Carrinho",
           "label_cart_cancel": "Cancelar carrinho",
@@ -852,10 +852,10 @@
           "label_clipboard": "Área de transferência",
           "label_clock": "Relógio",
           "label_cog": "Engrenagem",
-          "label_computer_camera": "Câmera do computador",
+          "label_computer_camera": "Câmara do computador",
           "label_credit_cart": "Cartão de crédito",
           "label_cross": "Cruz",
-          "label_desktop": "Área de trabalho",
+          "label_desktop": "Computador",
           "label_device_watch": "Relógio",
           "label_disabled": "Desativado",
           "label_discord": "Discord",
@@ -870,7 +870,7 @@
           "label_gift_wrap": "Papel de presente",
           "label_globe": "Globo",
           "label_hammer": "Martelo",
-          "label_headphones": "Fones de ouvido",
+          "label_headphones": "Auscultadores",
           "label_heart": "Coração",
           "label_heart_full": "Coração cheio",
           "label_home": "Início",
@@ -879,16 +879,16 @@
           "label_instagram": "Instagram",
           "label_key": "Chave",
           "label_label": "Rótulo",
-          "label_laptop": "Notebook",
+          "label_laptop": "Portátil",
           "label_linkedin": "LinkedIn",
           "label_map": "Mapa",
           "label_menu": "Menu",
           "label_minus": "Menos",
-          "label_mobile": "Celular",
+          "label_mobile": "Telemóvel",
           "label_mouse": "Rato",
           "label_palette": "Paleta",
           "label_paper_airplane": "Avião de papel",
-          "label_percent": "Porcentagem",
+          "label_percent": "Percentagem",
           "label_phone": "Telefone",
           "label_pin": "Pino",
           "label_pinterest": "Pinterest",
@@ -899,10 +899,10 @@
           "label_ruler": "Régua",
           "label_search": "Pesquisar",
           "label_settings": "Configurações",
-          "label_share": "Compartilhar",
+          "label_share": "Partilhar",
           "label_shield": "Escudo",
           "label_shield_plus": "Escudo com cruz",
-          "label_shirt": "Camiseta",
+          "label_shirt": "T-shirt",
           "label_snapchat": "Snapchat",
           "label_spotify": "Spotify",
           "label_star_empty": "Estrela vazia",
@@ -911,15 +911,15 @@
           "label_support": "Suporte",
           "label_tags": "Etiquetas",
           "label_television": "TV",
-          "label_thumb_down": "Não gostei",
-          "label_thumb_up": "Curtir",
+          "label_thumb_down": "Não gosto",
+          "label_thumb_up": "Gosto",
           "label_tiktok": "TikTok",
-          "label_truck": "Caminhão",
-          "label_truck_loading": "Carregamento de caminhão",
+          "label_truck": "Camião",
+          "label_truck_loading": "Carregamento de camião",
           "label_tumblr": "Tumblr",
           "label_twitter": "Twitter",
-          "label_user": "Usuário",
-          "label_user_alt": "Usuário alt",
+          "label_user": "Utilizador",
+          "label_user_alt": "Utilizador alt",
           "label_vimeo": "Vimeo",
           "label_wallet": "Carteira",
           "label_warning": "Atenção",
@@ -930,10 +930,10 @@
         }
       },
       "custom_liquid": {
-        "name": "Customizar Liquid",
+        "name": "Liquid personalizado",
         "custom_liquid": {
-          "label": "Customizar Liquid",
-          "info": "Adicione snippets de aplicativos ou outro código Liquid para criar customizações avançadas."
+          "label": "Liquid personalizado",
+          "info": "Adicione snippets de aplicaçãos ou outro código Liquid para criar customizações avançadas."
         }
       },
       "card_ratio": {
@@ -949,8 +949,8 @@
       },
       "box_align": {
         "label": "Posição do conteúdo",
-        "label_desktop": "Posição do conteúdo no desktop",
-        "label_mobile": "Posição do conteúdo no celular",
+        "label_desktop": "Posição do conteúdo no computador",
+        "label_mobile": "Posição do conteúdo em telemóvel",
         "options": {
           "label_tl": "Alinhar parte superior à esquerda",
           "label_tc": "Alinhar parte superior no centro",
@@ -965,8 +965,8 @@
       },
       "heading_size": {
         "label": "Tamanho do título",
-        "label_desktop": "Tamanho do título no desktop",
-        "label_mobile": "Tamanho do título no celular",
+        "label_desktop": "Tamanho do título no computador",
+        "label_mobile": "Tamanho do título em telemóvel",
         "options": {
           "label_sm": "Pequeno",
           "label_md": "Normal",
@@ -977,7 +977,7 @@
       },
       "headings_alignment": {
         "label": "Alinhamento de títulos",
-        "label_section": "Alinhamento dos títulos da seção",
+        "label_section": "Alinhamento dos títulos da secção",
         "label_block": "Alinhamento dos títulos do bloco",
         "options": {
           "label_left": "Esquerda",
@@ -1080,11 +1080,11 @@
           "label": "Exibir SKU"
         },
         "show_stock": {
-          "label": "Exibir situação do estoque"
+          "label": "Exibir estado do stock"
         },
         "show_rating": {
           "label": "Exibir avaliação do produto",
-          "info": "Para exibir a avaliação, adicione um aplicativo de avaliação de produto. [Saiba mais](https://trulyfinepixels.com/documentation/themes/athens/guides/product-ratings/)"
+          "info": "Para apresentar a avaliação, adicione uma aplicação de avaliação de produto. [Saiba mais](https://trulyfinepixels.com/documentation/themes/athens/guides/product-ratings/)"
         },
         "show_barcode": {
           "label": "Exibir código de barras"
@@ -1109,16 +1109,16 @@
         },
         "heading_tag": {
           "label": "Tag de cabeçalho",
-          "info": "Para SEO. Deixe como está, a menos que você saiba por que está mudando."
+          "info": "Para SEO. Deixe como está, a menos que saiba por que está mudando."
         },
         "show_on_desktop": {
-          "label": "Mostrar seção no desktop"
+          "label": "Mostrar secção no computador"
         },
         "show_on_mobile": {
-          "label": "Mostrar seção no celular"
+          "label": "Mostrar secção em telemóvel"
         },
         "hide_if_empty": {
-          "info": "Quando ativado, toda a seção ficará oculta no front-end, a menos que haja uma saída significativa. Melhor usado com fontes dinâmicas."
+          "info": "Quando ativado, toda a secção ficará oculta no front-end, a menos que haja uma saída significativa. Melhor usado com fontes dinâmicas."
         },
         "hide_block_if_empty": {
           "info": "Quando ativado, o bloco será ocultado no front-end, a menos que haja conteúdo relevante. Recomendado para uso com fontes dinâmicas."
@@ -1132,7 +1132,7 @@
         "marketing": "Marketing",
         "navigation": "Navegação",
         "products": "Produtos",
-        "flexi": "Seções flexíveis"
+        "flexi": "Secções flexíveis"
       }
     },
     "announcement_bar": {
@@ -1148,13 +1148,13 @@
           "label": "Menu"
         },
         "section_spacing": {
-          "info": "Apenas se aplica à área de trabalho."
+          "info": "Apenas se aplica à computador."
         },
         "remove_border": {
           "label": "Retirar borda inferior"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver texto"
+          "label": "Ocultar secção se não houver texto"
         }
       }
     },
@@ -1168,7 +1168,7 @@
           "label": "Link"
         },
         "section_spacing": {
-          "info": "Apenas se aplica à área de trabalho."
+          "info": "Apenas se aplica à computador."
         }
       }
     },
@@ -1192,7 +1192,7 @@
         },
         "layout": {
           "label": "Localização da mídia",
-          "info": "Apenas se aplica à área de trabalho. Em telas menores, a mídia sempre vem primeiro.",
+          "info": "Apenas se aplica à computador. Em ecrãs menores, a mídia sempre vem primeiro.",
           "options": {
             "label_1": "Mídia primeiro",
             "label_2": "Texto primeiro"
@@ -1202,7 +1202,7 @@
           "label": "Alinhamento do conteúdo"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver imagens"
+          "label": "Ocultar secção se não houver imagens"
         },
         "colors_slider": {
           "label": "Cor do slider"
@@ -1279,7 +1279,7 @@
           "label": "Mostrar seta de navegação"
         },
         "section_spacing": {
-          "info": "Apenas se aplica à área de trabalho."
+          "info": "Apenas se aplica à computador."
         }
       },
       "blocks": {
@@ -1300,14 +1300,14 @@
       }
     },
     "apps": {
-      "name": "Aplicativos",
+      "name": "Aplicaçãos",
       "settings": {
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         }
       },
       "presets": {
-        "name": "Aplicativos"
+        "name": "Aplicaçãos"
       }
     },
     "banner_list": {
@@ -1335,10 +1335,10 @@
           "info": "Apenas se aplica aos layouts de Grade e Slides."
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se as imagens e vídeos personalizados dos blocos estiverem vazios"
+          "label": "Ocultar secção se as imagens e vídeos personalizados dos blocos estiverem vazios"
         },
         "full_width": {
-          "label": "Tornar a seção com largura total"
+          "label": "Tornar a secção com largura total"
         }
       },
       "blocks": {
@@ -1470,7 +1470,7 @@
           "label": "Mostrar trecho"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver postagens no blog"
+          "label": "Ocultar secção se não houver postagens no blog"
         }
       },
       "presets": {
@@ -1501,7 +1501,7 @@
           "label": "Subtítulo"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver marcas"
+          "label": "Ocultar secção se não houver marcas"
         }
       },
       "blocks": {
@@ -1533,7 +1533,7 @@
       "name": "Chamada para ação",
       "settings": {
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "height": {
           "label": "Altura (px)"
@@ -1552,7 +1552,7 @@
         },
         "video_description": {
           "label": "Descrição do vídeo",
-          "info": "Descreve o vídeo para torná-lo acessível aos clientes que utilizam leitores de tela."
+          "info": "Descreve o vídeo para torná-lo acessível aos clientes que utilizam leitores de ecrã."
         },
         "heading": {
           "label": "Título"
@@ -1584,7 +1584,7 @@
         },
         "content_width": {
           "label": "Largura do conteúdo em %",
-          "info": "Apenas se aplica à área de trabalho. A largura máxima (em porcentagem) do conteúdo da chamada para ação (título e descrição)."
+          "info": "Apenas se aplica à computador. A largura máxima (em porcentagem) do conteúdo da chamada para ação (título e descrição)."
         },
         "content_color_scheme": {
           "label": "Esquema de cores do conteúdo"
@@ -1593,7 +1593,7 @@
           "content": "Layout para dispositivos móveis"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver texto e link"
+          "label": "Ocultar secção se não houver texto e link"
         }
       },
       "presets": {
@@ -1625,7 +1625,7 @@
           "info": "Apenas se aplica aos layouts de Grade e Slides."
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver coleções"
+          "label": "Ocultar secção se não houver coleções"
         }
       },
       "blocks": {
@@ -1701,7 +1701,7 @@
           "label": "Exibir imagem"
         },
         "hide_placeholders": {
-          "label": "Ocultar seção se não houver coleções exibidas"
+          "label": "Ocultar secção se não houver coleções exibidas"
         },
         "header_1": {
           "content": "Layout para dispositivos móveis"
@@ -1715,7 +1715,7 @@
       "name": "Banner de contagem regressiva",
       "settings": {
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "height": {
           "label": "Altura (px)"
@@ -1753,7 +1753,7 @@
         },
         "content_width": {
           "label": "Largura do conteúdo em %",
-          "info": "Apenas se aplica à área de trabalho. A largura máxima (em porcentagem) do conteúdo da seção."
+          "info": "Apenas se aplica à computador. A largura máxima (em porcentagem) do conteúdo da secção."
         },
         "header_1": {
           "content": "Temporizador"
@@ -1764,20 +1764,20 @@
         },
         "end_time": {
           "label": "Hora final",
-          "info": "Formato: 14:00 (relógio de 24 horas). Usa o fuso horário da loja. Opcional. Se nenhum horário final for inserido, a seção usará meia-noite."
+          "info": "Formato: 14:00 (relógio de 24 horas). Usa o fuso horário da loja. Opcional. Se nenhum horário final for inserido, a secção usará meia-noite."
         },
         "hide_on_expiration": {
-          "label": "Oculte toda a seção quando a data de expiração tiver passado."
+          "label": "Oculte toda a secção quando a data de expiração tiver passado."
         },
         "expiration_message": {
           "label": "Mensagem de expiração",
-          "info": "Exiba uma mensagem para seus clientes quando a data de expiração tiver passado. Se a seção estiver oculta quando expirada, isso não terá efeito."
+          "info": "Exiba uma mensagem para seus clientes quando a data de expiração tiver passado. Se a secção estiver oculta quando expirada, isso não terá efeito."
         },
         "header_2": {
           "content": "Layout para dispositivos móveis"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver texto"
+          "label": "Ocultar secção se não houver texto"
         }
       },
       "presets": {
@@ -1788,7 +1788,7 @@
       "name": "Temporizador de contagem regressiva",
       "settings": {
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "height": {
           "label": "Altura (px)"
@@ -1826,17 +1826,17 @@
         },
         "content_width": {
           "label": "Largura do conteúdo em %",
-          "info": "Apenas se aplica à área de trabalho. A largura máxima (em porcentagem) do conteúdo da seção."
+          "info": "Apenas se aplica à computador. A largura máxima (em porcentagem) do conteúdo da secção."
         },
         "header_1": {
           "content": "Produto em destaque"
         },
         "product": {
           "label": "Produto",
-          "info": "Opcionalmente, escolha apresentar um produto na seção do temporizador de contagem regressiva."
+          "info": "Opcionalmente, escolha apresentar um produto na secção do temporizador de contagem regressiva."
         },
         "hide_on_mobile": {
-          "label": "Ocultar no celular",
+          "label": "Ocultar em telemóvel",
           "info": "Controle a visibilidade do produto em destaque em dispositivos móveis."
         },
         "header_2": {
@@ -1848,20 +1848,20 @@
         },
         "end_time": {
           "label": "Hora final",
-          "info": "Formato: 14:00 (relógio de 24 horas). Usa o fuso horário da loja. Opcional. Se nenhum horário final for inserido, a seção usará meia-noite."
+          "info": "Formato: 14:00 (relógio de 24 horas). Usa o fuso horário da loja. Opcional. Se nenhum horário final for inserido, a secção usará meia-noite."
         },
         "hide_on_expiration": {
-          "label": "Oculte toda a seção quando a data de expiração tiver passado."
+          "label": "Oculte toda a secção quando a data de expiração tiver passado."
         },
         "expiration_message": {
           "label": "Mensagem de expiração",
-          "info": "Exiba uma mensagem para seus clientes quando a data de expiração tiver passado. Se a seção estiver oculta quando expirada, isso não terá efeito."
+          "info": "Exiba uma mensagem para seus clientes quando a data de expiração tiver passado. Se a secção estiver oculta quando expirada, isso não terá efeito."
         },
         "header_3": {
           "content": "Layout para dispositivos móveis"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver texto"
+          "label": "Ocultar secção se não houver texto"
         }
       },
       "presets": {
@@ -1919,7 +1919,7 @@
           }
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver coleções"
+          "label": "Ocultar secção se não houver coleções"
         }
       },
       "blocks": {
@@ -1963,7 +1963,7 @@
           "label": "Largura da imagem da aba"
         },
         "auto_rotate": {
-          "label": "Alternar automaticamente as abas no desktop"
+          "label": "Alternar automaticamente as abas no computador"
         },
         "change_slides_speed": {
           "label": "Trocar abas a cada"
@@ -1978,7 +1978,7 @@
           "label": "Número de produtos"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver coleções"
+          "label": "Ocultar secção se não houver coleções"
         }
       },
       "blocks": {
@@ -1998,7 +1998,7 @@
             },
             "products": {
               "label": "Produtos",
-              "info": "Você também pode selecionar qualquer produto específico que desejar exibir no lugar dos exibidos automaticamente escolhendo uma coleção. Neste caso, a opção “Número de produtos” é ignorada."
+              "info": "Também é possível selecionar qualquer produto específico que desejar exibir no lugar dos exibidos automaticamente escolhendo uma coleção. Neste caso, a opção “Número de produtos” é ignorada."
             }
           }
         }
@@ -2008,7 +2008,7 @@
       }
     },
     "contact_form": {
-      "name": "Formulário de contato",
+      "name": "Formulário de contacto",
       "settings": {
         "title": {
           "label": "Título"
@@ -2016,7 +2016,7 @@
       }
     },
     "custom_liquid": {
-      "name": "Customizar Liquid",
+      "name": "Liquid personalizado",
       "settings": {
         "title": {
           "label": "Título"
@@ -2025,21 +2025,21 @@
           "label": "Subtítulo"
         },
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "liquid": {
           "label": "Liquid"
         }
       },
       "preset": {
-        "name": "Customizar Liquid"
+        "name": "Liquid personalizado"
       }
     },
     "expandable": {
       "name": "Expansível",
       "settings": {
         "narrow": {
-          "label": "Estreita a seção"
+          "label": "Estreita a secção"
         },
         "heading": {
           "label": "Título"
@@ -2055,7 +2055,7 @@
           }
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver blocos com texto"
+          "label": "Ocultar secção se não houver blocos com texto"
         }
       },
       "blocks": {
@@ -2090,7 +2090,7 @@
         },
         "products": {
           "label": "Produtos",
-          "info": "Você também pode selecionar qualquer produto específico que desejar exibir no lugar dos exibidos automaticamente escolhendo uma coleção. Neste caso, a opção “Número de produtos” é ignorada."
+          "info": "Também é possível selecionar qualquer produto específico que desejar exibir no lugar dos exibidos automaticamente escolhendo uma coleção. Neste caso, a opção “Número de produtos” é ignorada."
         },
         "heading": {
           "label": "Título"
@@ -2149,7 +2149,7 @@
           "label": "Esquema de cores do botão"
         },
         "hide_placeholders": {
-          "label": "Ocultar seção se não houver produtos exibidos"
+          "label": "Ocultar secção se não houver produtos exibidos"
         }
       },
       "presets": {
@@ -2169,7 +2169,7 @@
           "label": "Produto"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver produto"
+          "label": "Ocultar secção se não houver produto"
         }
       },
       "presets": {
@@ -2206,7 +2206,7 @@
           "info": "Aplica-se quando produtos são selecionados em hotspots."
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se a imagem ou os blocos estiverem vazios"
+          "label": "Ocultar secção se a imagem ou os blocos estiverem vazios"
         }
       },
       "blocks": {
@@ -2256,12 +2256,12 @@
           "label": "Oculta a mídia de outras variantes após selecionar uma variante"
         },
         "arrow_navigation": {
-          "label": "Exibir setas de navegação da galeria no celular",
+          "label": "Exibir setas de navegação da galeria em telemóvel",
           "info": "Aplica-se apenas a dispositivos móveis. Exibe setas de navegação em produtos com mais de uma imagem na galeria principal."
         },
         "thumbnails_position": {
           "label": "Posição das miniaturas",
-          "info": "Apenas se aplica à área de trabalho.",
+          "info": "Apenas se aplica à computador.",
           "options": {
             "label_left": "Esquerda",
             "label_right": "Direita",
@@ -2270,11 +2270,11 @@
         },
         "thumbnail_navigation": {
           "label": "Exibir setas de navegação em miniatura",
-          "info": "Apenas se aplica à área de trabalho. Exibe setas de navegação em produtos com muitas miniaturas no carrossel de miniaturas."
+          "info": "Apenas se aplica à computador. Exibe setas de navegação em produtos com muitas miniaturas no carrossel de miniaturas."
         },
         "image_zoom_type": {
           "label": "Zoom da imagem",
-          "info": "Apenas se aplica à área de trabalho. No celular, a imagem amplia sempre na caixa de luz.",
+          "info": "Apenas se aplica à computador. Em telemóvel, a imagem amplia sempre na caixa de luz.",
           "options": {
             "label_1": "Caixa de luz",
             "label_2": "Zoom ao passar o mouse",
@@ -2358,7 +2358,7 @@
               "info": "Esta configuração substituirá o formato do botão das configurações do tema > Botões > Formato",
               "options": {
                 "label_1": "Herdar",
-                "label_2": "Arrendondado",
+                "label_2": "Arredondado",
                 "label_3": "Quadrado",
                 "label_4": "Cápsula"
               }
@@ -2420,26 +2420,26 @@
           "name": "Disponibilidade de retirada"
         },
         "extra": {
-          "name": "Extra / Compartilhamento em redes sociais",
+          "name": "Extra / Partilha em redes sociais",
           "settings": {
             "text": {
               "label": "Texto"
             },
             "show_facebook": {
-              "label": "Compartilhar no Facebook"
+              "label": "Partilhar no Facebook"
             },
             "show_twitter": {
-              "label": "Compartilhar no X"
+              "label": "Partilhar no X"
             },
             "show_linkedin": {
-              "label": "Compartilhar no LinkedIn"
+              "label": "Partilhar no LinkedIn"
             }
           }
         },
         "complementary": {
           "name": "Produtos adicionais",
           "paragraph_1": {
-            "content": "Para definir produtos adicionais, use o aplicativo gratuito \"Search & Discovery\" da Shopify. [Saiba mais](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)"
+            "content": "Para definir produtos complementares, utilize a aplicação gratuita “Search & Discovery” da Shopify. [Saiba mais](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)"
           },
           "title": {
             "label": "Título"
@@ -2553,7 +2553,7 @@
           }
         },
         "contact_details": {
-          "name": "Detalhes de contato",
+          "name": "Detalhes de contacto",
           "settings": {
             "heading": {
               "label": "Título"
@@ -2625,7 +2625,7 @@
           }
         },
         "product_signup": {
-          "name": "Cadastro do produto",
+          "name": "Registo do produto",
           "settings": {
             "heading": {
               "label": "Título"
@@ -2667,16 +2667,16 @@
           }
         },
         "stock_bar": {
-          "name": "Barra de estoque",
+          "name": "Barra de stock",
           "settings": {
             "text_in_stock": {
-              "label": "Em estoque"
+              "label": "Em stock"
             },
             "text_out_of_stock": {
               "label": "Texto quando esgotado"
             },
             "text_low_inventory": {
-              "label": "Texto quando o estoque está baixo"
+              "label": "Texto quando o stock está baixo"
             },
             "text_on_backorder": {
               "label": "Texto quando em encomenda"
@@ -2702,7 +2702,7 @@
               "label": "Largura"
             },
             "mobile_width": {
-              "label": "Largura no celular"
+              "label": "Largura em telemóvel"
             },
             "alignment": {
               "label": "Alinhamento",
@@ -2819,14 +2819,14 @@
             },
             "end_time": {
               "label": "Hora final",
-              "info": "Formato: 14:00 (relógio de 24 horas). Usa o fuso horário da loja. Opcional. Se nenhum horário final for inserido, a seção usará meia-noite."
+              "info": "Formato: 14:00 (relógio de 24 horas). Usa o fuso horário da loja. Opcional. Se nenhum horário final for inserido, a secção usará meia-noite."
             },
             "hide_on_expiration": {
               "label": "Ocultar todo o bloco quando a data de expiração tiver passado"
             },
             "expiration_message": {
               "label": "Mensagem de expiração",
-              "info": "Exiba uma mensagem para seus clientes quando a data de expiração tiver passado. Se a seção estiver oculta quando expirada, isso não terá efeito."
+              "info": "Exiba uma mensagem para seus clientes quando a data de expiração tiver passado. Se a secção estiver oculta quando expirada, isso não terá efeito."
             },
             "show_on_sale": {
               "label": "Mostrar apenas em promoção",
@@ -3003,7 +3003,7 @@
         },
         "image_position": {
           "label": "Posição da imagem",
-          "info": "Aplica-se apenas em desktop. No celular, as imagens voltam para o topo do banner.",
+          "info": "Aplica-se apenas em computador. Em telemóvel, as imagens voltam para o topo do banner.",
           "options": {
             "label_1": "Superior",
             "label_2": "Esquerda",
@@ -3027,7 +3027,7 @@
           }
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem imagem ou texto"
+          "label": "Ocultar secção se os blocos não tiverem imagem ou texto"
         }
       },
       "blocks": {
@@ -3091,11 +3091,11 @@
         },
         "google_maps_api_key": {
           "label": "Chave de API do Google Maps",
-          "info": "Você precisa ativar os APIs do [Google Maps](https://developers.google.com/maps/documentation/javascript/get-api-key) e do [Geocoding](https://developers.google.com/maps/documentation/javascript/geocoding#GetStarted) para exibir o mapa."
+          "info": "É necessário ativar os APIs do [Google Maps](https://developers.google.com/maps/documentation/javascript/get-api-key) e do [Geocoding](https://developers.google.com/maps/documentation/javascript/geocoding#GetStarted) para exibir o mapa."
         },
         "zoom": {
           "label": "Nível de zoom do mapa",
-          "info": "Usado somente quando você tem um local ou quando você navega para um local. Quando houver vários locais, o mapa será automaticamente carregado no nível ideal de zoom."
+          "info": "Usado somente quando o utilizador tem um local ou quando o utilizador navega para um local. Quando houver vários locais, o mapa será automaticamente carregado no nível ideal de zoom."
         },
         "custom_colors_enabled": {
           "label": "Utilizar cores de mapa personalizadas"
@@ -3110,7 +3110,7 @@
           "label": "Imagem do marcador"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os locais estiverem vazios"
+          "label": "Ocultar secção se os locais estiverem vazios"
         }
       },
       "blocks": {
@@ -3160,11 +3160,11 @@
           }
         },
         "auto_rotate": {
-          "label": "Rotação automática no celular",
-          "info": "Gire automaticamente os recursos no celular. Aplica-se quando os recursos não estão empilhados no celular."
+          "label": "Rotação automática em telemóvel",
+          "info": "Gire automaticamente os recursos em telemóvel. Aplica-se quando os recursos não estão empilhados em telemóvel."
         },
         "hide_if_empty": {
-          "label": "Ocultar a seção se o texto dos blocos estiver vazio"
+          "label": "Ocultar a secção se o texto dos blocos estiver vazio"
         }
       },
       "blocks": {
@@ -3173,7 +3173,7 @@
           "settings": {
             "image": {
               "label": "Imagem",
-              "info": "Se nenhum dos ícones servir, você pode carregar uma imagem personalizada de 40 x 40 px."
+              "info": "Se nenhum dos ícones servir, o utilizador pode carregar uma imagem personalizada de 40 x 40 px."
             },
             "title": {
               "label": "Título"
@@ -3192,7 +3192,7 @@
       "name": "Filtros",
       "settings": {
         "full_width": {
-          "label": "Tornar a seção com largura total"
+          "label": "Tornar a secção com largura total"
         },
         "heading": {
           "label": "Título"
@@ -3206,7 +3206,7 @@
         },
         "collections_2": {
           "label": "Coleções adicionais",
-          "info": "Use esta opção se você atingiu o limite na configuração de Coleções acima. Essas coleções serão exibidas depois das anteriores."
+          "info": "Use esta opção se o utilizador atingiu o limite na configuração de Coleções acima. Essas coleções serão exibidas depois das anteriores."
         },
         "collections_label": {
           "label": "Etiqueta de coleções"
@@ -3218,7 +3218,7 @@
           "content": "Cores"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver filtros"
+          "label": "Ocultar secção se não houver filtros"
         },
         "height": {
           "label": "Altura",
@@ -3274,7 +3274,7 @@
         },
         "header_1": {
           "content": "Seguir na loja",
-          "info": "Para permitir que os clientes sigam sua loja no aplicativo Shop a partir da sua loja, o Shop Pay deve estar ativado. [Saiba mais](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+          "info": "Para permitir que os clientes sigam a sua loja na aplicação Shop a partir da montra online, o Shop Pay tem de estar ativado. [Saiba mais](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
         },
         "enable_follow_on_shop": {
           "label": "Ativar Seguir na loja"
@@ -3365,10 +3365,10 @@
           "info": "Opcional. Quando definida, esta imagem será usada como o logotipo em dispositivos móveis."
         },
         "logo_width": {
-          "label": "Largura do logo no desktop"
+          "label": "Largura do logo no computador"
         },
         "mobile_logo_width": {
-          "label": "Largura do logo no celular"
+          "label": "Largura do logo em telemóvel"
         },
         "logo_homepage_tag": {
           "label": "Tag do logotipo na página inicial",
@@ -3389,8 +3389,8 @@
           "label": "Texto do slogan"
         },
         "header_2": {
-          "content": "Detalhes de contato",
-          "info": "Os detalhes de contato são exibidos ao lado da barra de pesquisa."
+          "content": "Detalhes de contacto",
+          "info": "Os detalhes de contacto são exibidos ao lado da barra de pesquisa."
         },
         "promo_title": {
           "label": "Título"
@@ -3439,11 +3439,11 @@
         },
         "enable_sticky_header": {
           "label": "Ativar cabeçalho fixo",
-          "info": "O cabeçalho fica visível enquanto os clientes rolam a tela para cima."
+          "info": "O cabeçalho fica visível enquanto os clientes rolam o ecrã para cima."
         },
         "sticky_header_always_on": {
           "label": "Cabeçalho fixo sempre ativado",
-          "info": "O cabeçalho está sempre visível na tela. Requer que o cabeçalho fixo esteja ativado."
+          "info": "O cabeçalho está sempre visível no ecrã. Requer que o cabeçalho fixo esteja ativado."
         },
         "collapse_navigation": {
           "label": "Recolher navegação",
@@ -3471,7 +3471,7 @@
             "label_1": "Exibir",
             "label_2": "Ocultar",
             "label_3": "Exibir como ícone",
-            "label_4": "Mostrar como ícone no celular"
+            "label_4": "Mostrar como ícone em telemóvel"
           }
         },
         "search_label": {
@@ -3519,13 +3519,13 @@
         },
         "menu_inline_expansion": {
           "label": "Ativar expansão em linha do submenu (desktop)",
-          "info": "Os submenus serão expandidos abaixo dos itens pai em vez de abrirem para a direita. Afeta apenas a navegação no desktop."
+          "info": "Os submenus serão expandidos abaixo dos itens pai em vez de abrirem para a direita. Afeta apenas a navegação no computador."
         },
         "mobile_navigation_color_scheme": {
           "label": "Esquema de cores da navegação em dispositivos móveis"
         },
         "section_spacing": {
-          "info": "Apenas se aplica à área de trabalho."
+          "info": "Apenas se aplica à computador."
         }
       },
       "blocks": {
@@ -3649,7 +3649,7 @@
           "content": "Banners"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se as imagens dos blocos estiverem ausentes"
+          "label": "Ocultar secção se as imagens dos blocos estiverem ausentes"
         }
       },
       "blocks": {
@@ -3665,7 +3665,7 @@
             },
             "description": {
               "label": "Descrição da imagem",
-              "info": "Descreve a imagem para os clientes que utilizam leitores de tela."
+              "info": "Descreve a imagem para os clientes que utilizam leitores de ecrã."
             },
             "link": {
               "label": "Link"
@@ -3685,7 +3685,7 @@
         },
         "position": {
           "label": "Posição",
-          "info": "Posição das notificações na tela",
+          "info": "Posição das notificações no ecrã",
           "options": {
             "label_tl": "Alinhar parte superior à esquerda",
             "label_tr": "Alinhar parte superior à direita",
@@ -3695,11 +3695,11 @@
         },
         "horizontal_margin": {
           "label": "Margem horizontal",
-          "info": "Distância da borda esquerda ou direita da tela. Aplica-se apenas em desktop."
+          "info": "Distância da borda esquerda ou direita do ecrã. Aplica-se apenas em computador."
         },
         "vertical_margin": {
           "label": "Margem vertical",
-          "info": "Distância da borda superior ou inferior da tela."
+          "info": "Distância da borda superior ou inferior do ecrã."
         },
         "header_visibility": {
           "content": "Visibilidade"
@@ -3708,8 +3708,8 @@
           "label": "Visibilidade do dispositivo",
           "info": "Controle em quais dispositivos as notificações são exibidas.",
           "options": {
-            "label_both": "Desktop e celular",
-            "label_desktop": "Apenas desktop",
+            "label_both": "Desktop e telemóvel",
+            "label_desktop": "Apenas computador",
             "label_mobile": "Apenas para dispositivos móveis"
           }
         },
@@ -3783,13 +3783,13 @@
           "name": "Conteúdo"
         },
         "share": {
-          "name": "Compartilhar",
+          "name": "Partilhar",
           "settings": {
             "share_label": {
               "label": "Texto"
             },
             "paragraph_1": {
-              "content": "Se você incluir um link em publicações de redes sociais, a imagem em destaque da página será exibida como a imagem de pré-visualização. [Saiba mais](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+              "content": "Se incluir um link em publicações de redes sociais, a imagem em destaque da página será exibida como a imagem de pré-visualização. [Saiba mais](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
             },
             "paragraph_2": {
               "content": "O título e a descrição da loja estão inclusos na imagem de pré-visualização. [Saiba mais](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
@@ -3847,8 +3847,8 @@
           "label": "Ativar observações no carrinho"
         },
         "show_shipping_calculator": {
-          "label": "Mostrar calculadora de frete",
-          "info": "A calculadora de frete exibe os custos estimados de envio."
+          "label": "Mostrar calculadora de portes de envio",
+          "info": "A calculadora de portes de envio exibe os custos estimados de envio."
         }
       },
       "blocks": {
@@ -3894,7 +3894,7 @@
         },
         "countdown": {
           "label": "Contagem regressiva",
-          "info": "Você pode adicionar uma contagem regressiva ao banner da coleção, abaixo do título e da descrição da coleção. [Saiba mais](https://trulyfinepixels.com/documentation/themes/athens/templates/collections/#countdown)"
+          "info": "Pode adicionar uma contagem regressiva ao banner da coleção, abaixo do título e da descrição da coleção. [Saiba mais](https://trulyfinepixels.com/documentation/themes/athens/templates/collections/#countdown)"
         }
       }
     },
@@ -4122,7 +4122,7 @@
       }
     },
     "main_password": {
-      "name": "Senha",
+      "name": "Palavra-passe",
       "settings": {
         "logo": {
           "label": "Imagem do logotipo"
@@ -4132,7 +4132,7 @@
         },
         "newsletter_enabled": {
           "label": "Mostrar formulário de newsletter",
-          "info": "Exibir o formulário de inscrição na newsletter em vez do campo de senha."
+          "info": "Exibir o formulário de inscrição na newsletter em vez do campo de palavra-passe."
         },
         "newsletter_message": {
           "label": "Mensagem de introdução da newsletter"
@@ -4212,7 +4212,7 @@
         },
         "layout": {
           "label": "Localização da mídia",
-          "info": "Apenas se aplica à área de trabalho. Em telas menores, a mídia sempre vem primeiro.",
+          "info": "Apenas se aplica à computador. Em ecrãs menores, a mídia sempre vem primeiro.",
           "options": {
             "label_1": "Mídia primeiro",
             "label_2": "Texto primeiro"
@@ -4225,7 +4225,7 @@
           "label": "Ativar borda e espaçamento interno"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver imagem ou texto"
+          "label": "Ocultar secção se não houver imagem ou texto"
         }
       },
       "blocks": {
@@ -4294,7 +4294,7 @@
           "label": "Link do botão"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem imagem ou texto"
+          "label": "Ocultar secção se os blocos não tiverem imagem ou texto"
         }
       },
       "blocks": {
@@ -4365,7 +4365,7 @@
         },
         "show_current_product": {
           "label": "Mostrar produto atual primeiro",
-          "info": "Quando ativado, o produto atualmente visível será exibido primeiro na lista de comparação. Aplica-se apenas quando a seção é exibida nas páginas de produtos."
+          "info": "Quando ativado, o produto atualmente visível será exibido primeiro na lista de comparação. Aplica-se apenas quando a secção é exibida nas páginas de produtos."
         },
         "show_headings": {
           "label": "Mostrar cabeçalhos da tabela"
@@ -4394,7 +4394,7 @@
           "label": "Exibir quantidade"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se houver menos de dois produtos"
+          "label": "Ocultar secção se houver menos de dois produtos"
         }
       },
       "blocks": {
@@ -4489,7 +4489,7 @@
           }
         },
         "stock_availability": {
-          "name": "Disponibilidade de estoque",
+          "name": "Disponibilidade de stock",
           "settings": {
             "heading": {
               "label": "Título"
@@ -4520,7 +4520,7 @@
               "label": "Largura"
             },
             "mobile_width": {
-              "label": "Largura no celular"
+              "label": "Largura em telemóvel"
             },
             "alignment": {
               "label": "Alinhamento",
@@ -4638,7 +4638,7 @@
           "label": "Subtítulo"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem produtos"
+          "label": "Ocultar secção se os blocos não tiverem produtos"
         }
       },
       "blocks": {
@@ -4756,10 +4756,10 @@
       "name": "Produtos relacionados com o cliente",
       "settings": {
         "paragraph_1": {
-          "content": "Somente use esta seção se você já tiver definido recomendações personalizadas para cada produto individualmente, usando os [metacampos do produto](https://trulyfinepixels.com/documentation/add-custom-product-recommendations/)."
+          "content": "Somente use esta secção se já tiver definido recomendações personalizadas para cada produto individualmente, usando os [metacampos do produto](https://trulyfinepixels.com/documentation/add-custom-product-recommendations/)."
         },
         "paragraph_2": {
-          "content": "Caso contrário, você deve usar a seção “Recomendações de produtos”, juntamente com o aplicativo \"Search & Discovery\" da Shopify. [Saiba mais](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)."
+          "content": "Caso contrário, deve utilizar a secção “Recomendações de produtos”, juntamente com a aplicação “Search & Discovery” da Shopify. [Saiba mais](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)."
         },
         "title": {
           "label": "Título"
@@ -4789,7 +4789,7 @@
       "name": "Rich text",
       "settings": {
         "narrow": {
-          "label": "Estreita a seção"
+          "label": "Estreita a secção"
         },
         "image": {
           "label": "Imagem"
@@ -4798,7 +4798,7 @@
           "label": "Alinhamento do conteúdo"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver texto"
+          "label": "Ocultar secção se não houver texto"
         }
       },
       "blocks": {
@@ -4849,7 +4849,7 @@
           "content": "Configurações"
         },
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "speed": {
           "label": "Velocidade de rolagem"
@@ -4950,7 +4950,7 @@
           "label": "Imagem personalizada"
         },
         "mobile_image": {
-          "label": "Imagem de fundo para celular"
+          "label": "Imagem de fundo para telemóvel"
         },
         "repeat_background": {
           "label": "Repetir imagem de fundo",
@@ -4975,10 +4975,10 @@
           "label": "Esquema de cores da caixa de conteúdo"
         },
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "height": {
-          "label": "Altura da seção",
+          "label": "Altura da secção",
           "options": {
             "label_small": "Pequeno",
             "label_medium": "Médio",
@@ -4986,7 +4986,7 @@
           }
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver imagem de fundo nem texto"
+          "label": "Ocultar secção se não houver imagem de fundo nem texto"
         }
       },
       "blocks": {
@@ -5031,7 +5031,7 @@
             },
             "start_date": {
               "label": "Data de início",
-              "info": "A seção ficará oculta até esta data. Formato: AAAA-MM-DD"
+              "info": "A secção ficará oculta até esta data. Formato: AAAA-MM-DD"
             },
             "start_time": {
               "label": "Hora de início",
@@ -5046,8 +5046,8 @@
               "info": "Formato: HH:MM no formato de 24 horas (ex: 23:59)"
             },
             "hide_on_expiration": {
-              "label": "Ocultar seção quando expirar",
-              "info": "Oculta toda a seção após a data de término."
+              "label": "Ocultar secção quando expirar",
+              "info": "Oculta toda a secção após a data de término."
             },
             "expiration_message": {
               "label": "Mensagem de expiração",
@@ -5067,7 +5067,7 @@
           "content": "Configurações do slideshow"
         },
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "slide_height": {
           "label": "Altura do slide",
@@ -5076,9 +5076,9 @@
             "label_2": "Pequeno",
             "label_3": "Médio",
             "label_4": "Grande",
-            "label_5": "Altura da tela inteira",
-            "label_6": "Três quartos da altura da tela",
-            "label_7": "Dois terços da altura da tela"
+            "label_5": "Altura do ecrã inteira",
+            "label_6": "Três quartos da altura do ecrã",
+            "label_7": "Dois terços da altura do ecrã"
           }
         },
         "auto_rotate": {
@@ -5103,10 +5103,10 @@
         },
         "accessibility_info": {
           "label": "Descrição da apresentação de slides",
-          "info": "Descreve a apresentação de slides para clientes que utilizam leitores de tela."
+          "info": "Descreve a apresentação de slides para clientes que utilizam leitores de ecrã."
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver imagens"
+          "label": "Ocultar secção se não houver imagens"
         }
       },
       "blocks": {
@@ -5144,7 +5144,7 @@
             },
             "content_width": {
               "label": "Largura do conteúdo em %",
-              "info": "Apenas se aplica à área de trabalho. A largura máxima (em porcentagem) do conteúdo do slide."
+              "info": "Apenas se aplica à computador. A largura máxima (em porcentagem) do conteúdo do slide."
             },
             "buttons_heading": {
               "label": "Botões"
@@ -5213,7 +5213,7 @@
           "info": "Desative isso se quiser que as imagens sejam exibidas por completo e não cortadas. Quando a proporção da imagem for definida como “Adaptar à imagem”, esta opção não terá efeito."
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver imagens"
+          "label": "Ocultar secção se não houver imagens"
         }
       },
       "blocks": {
@@ -5225,7 +5225,7 @@
             },
             "description": {
               "label": "Descrição da imagem",
-              "info": "Descreve a imagem para os clientes que utilizam leitores de tela."
+              "info": "Descreve a imagem para os clientes que utilizam leitores de ecrã."
             },
             "link": {
               "label": "Link"
@@ -5250,7 +5250,7 @@
           "label": "Subtítulo"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem texto"
+          "label": "Ocultar secção se os blocos não tiverem texto"
         }
       },
       "blocks": {
@@ -5278,7 +5278,7 @@
       "name": "Mídia com guias com texto",
       "settings": {
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem mídia ou texto"
+          "label": "Ocultar secção se os blocos não tiverem mídia ou texto"
         }
       },
       "blocks": {
@@ -5321,7 +5321,7 @@
             },
             "layout": {
               "label": "Localização da mídia",
-              "info": "Apenas se aplica à área de trabalho. Em telas menores, a mídia sempre vem primeiro.",
+              "info": "Apenas se aplica à computador. Em ecrãs menores, a mídia sempre vem primeiro.",
               "options": {
                 "label_1": "Mídia primeiro",
                 "label_2": "Texto primeiro"
@@ -5350,7 +5350,7 @@
           "label": "Chamada para o texto de ação"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem texto"
+          "label": "Ocultar secção se os blocos não tiverem texto"
         }
       },
       "blocks": {
@@ -5395,13 +5395,13 @@
         },
         "description": {
           "label": "Descrição",
-          "info": "Descreve o vídeo para torná-lo acessível aos clientes que utilizam leitores de tela."
+          "info": "Descreve o vídeo para torná-lo acessível aos clientes que utilizam leitores de ecrã."
         },
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver vídeo"
+          "label": "Ocultar secção se não houver vídeo"
         }
       },
       "presets": {
@@ -5412,7 +5412,7 @@
       "name": "Fundo do vídeo",
       "settings": {
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         },
         "height": {
           "label": "Altura",
@@ -5420,9 +5420,9 @@
             "label_2": "Pequeno",
             "label_3": "Médio",
             "label_4": "Grande",
-            "label_5": "Altura da tela inteira",
-            "label_6": "Três quartos da altura da tela",
-            "label_7": "Dois terços da altura da tela",
+            "label_5": "Altura do ecrã inteira",
+            "label_6": "Três quartos da altura do ecrã",
+            "label_7": "Dois terços da altura do ecrã",
             "label_8": "Preservar proporção"
           }
         },
@@ -5480,13 +5480,13 @@
         },
         "video_description": {
           "label": "Descrição do vídeo",
-          "info": "Descreve o vídeo para torná-lo acessível aos clientes que utilizam leitores de tela."
+          "info": "Descreve o vídeo para torná-lo acessível aos clientes que utilizam leitores de ecrã."
         },
         "header_3": {
           "content": "Layout para dispositivos móveis"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver vídeo"
+          "label": "Ocultar secção se não houver vídeo"
         }
       },
       "presets": {
@@ -5506,7 +5506,7 @@
           "label": "Imagem"
         },
         "image_position": {
-          "label": "Posição da imagem na área de trabalho",
+          "label": "Posição da imagem no computador",
           "options": {
             "label_1": "Superior",
             "label_2": "Esquerda",
@@ -5532,7 +5532,7 @@
           "info": "Número de segundos que o pop-up demorará para ser exibido para seus clientes. Definir como “0” exibirá o pop-up imediatamente."
         },
         "hide_on_mobile": {
-          "label": "Ocultar no celular"
+          "label": "Ocultar em telemóvel"
         },
         "hide_logged_in": {
           "label": "Ocultar de clientes conectados"
@@ -5578,11 +5578,11 @@
               "info": "Insira uma data no seguinte formato: aaaa/mm/dd hh:mm:ss"
             },
             "hide_on_expiration": {
-              "label": "Ocultar seção após o término da contagem regressiva"
+              "label": "Ocultar secção após o término da contagem regressiva"
             },
             "expiration_message": {
               "label": "Mensagem de expiração",
-              "info": "Exiba uma mensagem aos seus clientes se a contagem regressiva tiver expirado. Se a seção estiver oculta quando expirar, isso não terá efeito."
+              "info": "Exiba uma mensagem aos seus clientes se a contagem regressiva tiver expirado. Se a secção estiver oculta quando expirar, isso não terá efeito."
             }
           }
         },
@@ -5669,7 +5669,7 @@
             },
             "label": {
               "label": "Rótulo acessível",
-              "info": "Texto descritivo para leitores de tela (por exemplo, 'Fale Conosco', 'Localizador de Lojas')"
+              "info": "Texto descritivo para leitores de ecrã (por exemplo, 'Contacte-nos', 'Localizador de Lojas')"
             }
           }
         }
@@ -5689,7 +5689,7 @@
         },
         "image_position": {
           "label": "Posição da imagem",
-          "info": "Posição da imagem na área de trabalho",
+          "info": "Posição da imagem no computador",
           "options": {
             "label_top": "Superior",
             "label_left": "Esquerda",
@@ -5715,7 +5715,7 @@
           "info": "Atraso em segundos antes que a verificação de idade apareça"
         },
         "hide_on_mobile": {
-          "label": "Ocultar no celular"
+          "label": "Ocultar em telemóvel"
         },
         "hide_logged_in": {
           "label": "Ocultar para clientes logados"
@@ -5765,7 +5765,7 @@
             },
             "rejection_message": {
               "label": "Mensagem de rejeição",
-              "info": "Mensagem exibida quando o usuário clica no botão \"Não\"."
+              "info": "Mensagem exibida quando o utilizador clica no botão \"Não\"."
             }
           }
         }
@@ -5785,7 +5785,7 @@
         },
         "minimum_variants": {
           "label": "Variantes mínimas",
-          "info": "A seção só será visível se o produto tiver pelo menos essa quantidade de variantes. Defina como 1 se você quiser que a seção esteja sempre visível."
+          "info": "A secção só será visível se o produto tiver pelo menos essa quantidade de variantes. Defina como 1 se pretender que a secção esteja sempre visível."
         },
         "pagination": {
           "label": "Paginação",
@@ -5807,14 +5807,14 @@
       }
     },
     "ai_section": {
-      "name": "Seção de IA",
+      "name": "Secção de IA",
       "settings": {
         "full_width": {
-          "label": "Expande a seção para a largura total"
+          "label": "Expande a secção para a largura total"
         }
       },
       "presets": {
-        "name": "Seção de IA"
+        "name": "Secção de IA"
       }
     },
     "link_index": {
@@ -5847,14 +5847,14 @@
       }
     },
     "flexi_contact_form": {
-      "name": "Flexi - Formulário de contato",
+      "name": "Flexi - Formulário de contacto",
       "settings": {
         "header_form": {
           "content": "Configurações do formulário"
         },
         "form_id": {
           "label": "ID do formulário",
-          "info": "Identificador único para este formulário de contato"
+          "info": "Identificador único para este formulário de contacto"
         },
         "success_message": {
           "label": "Mensagem de sucesso"
@@ -5922,7 +5922,7 @@
           "label": "Largura da imagem da aba"
         },
         "auto_rotate": {
-          "label": "Alternar automaticamente as abas no desktop"
+          "label": "Alternar automaticamente as abas no computador"
         },
         "change_slides_speed": {
           "label": "Trocar abas a cada"
@@ -5948,7 +5948,7 @@
           "label": "Ativar borda do cartão da coleção"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se não houver coleções"
+          "label": "Ocultar secção se não houver coleções"
         }
       },
       "blocks": {
@@ -5992,7 +5992,7 @@
           "label": "Subtítulo"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os blocos não tiverem coleções"
+          "label": "Ocultar secção se os blocos não tiverem coleções"
         },
         "description_type": {
           "label": "Tipo de descrição",
@@ -6044,7 +6044,7 @@
           "label": "Painel inicialmente expandido"
         },
         "panel_height": {
-          "label": "Altura do painel no desktop",
+          "label": "Altura do painel no computador",
           "options": {
             "value_small": "Pequeno",
             "value_medium": "Médio",
@@ -6062,7 +6062,7 @@
           "label": "Tamanho do título do painel fechado"
         },
         "hide_if_empty": {
-          "label": "Ocultar seção se os painéis estiverem vazios"
+          "label": "Ocultar secção se os painéis estiverem vazios"
         }
       },
       "blocks": {
@@ -6106,7 +6106,7 @@
       "name": "Carrinho fixo",
       "settings": {
         "paragraph_1": {
-          "content": "Uma barra de carrinho fixa que aparece na parte inferior da tela ao rolar nas páginas de produto. Detecta automaticamente e se posiciona acima do dock móvel, se houver."
+          "content": "Uma barra de carrinho fixa que aparece na parte inferior do ecrã ao rolar nas páginas de produto. Detecta automaticamente e se posiciona acima do dock móvel, se houver."
         },
         "header_trigger": {
           "content": "Comportamento do gatilho"
@@ -6115,8 +6115,8 @@
           "label": "Mostrar carrinho fixo quando",
           "info": "Selecione quando o carrinho fixo aparece.",
           "options": {
-            "label_past_button": "Usuário rola além do botão 'Adicionar ao carrinho'",
-            "label_distance": "O usuário rola uma distância específica"
+            "label_past_button": "Utilizador rola além do botão 'Adicionar ao carrinho'",
+            "label_distance": "O utilizador rola uma distância específica"
           }
         },
         "trigger_offset": {
@@ -6128,7 +6128,7 @@
         },
         "show_product_image": {
           "label": "Mostrar imagem do produto",
-          "info": "Só se aplica no desktop. A imagem fica sempre oculta em dispositivos móveis."
+          "info": "Só se aplica no computador. A imagem fica sempre oculta em dispositivos móveis."
         }
       }
     }
@@ -6209,7 +6209,7 @@
         },
         "alt_text": {
           "label": "Texto alternativo / Descrição do vídeo",
-          "info": "Descreva a imagem/vídeo para leitores de tela. Deixe em branco para usar a descrição integrada da imagem."
+          "info": "Descreva a imagem/vídeo para leitores de ecrã. Deixe em branco para usar a descrição integrada da imagem."
         }
       }
     },
@@ -6245,7 +6245,7 @@
         },
         "required": {
           "label": "Campo obrigatório",
-          "info": "Torne este campo obrigatório para envio do formulário. Observação: é necessário ter pelo menos um campo de e-mail em formulários de contato."
+          "info": "Torne este campo obrigatório para envio do formulário. Observação: é necessário ter pelo menos um campo de e-mail em formulários de contacto."
         },
         "help_text": {
           "label": "Texto de ajuda"

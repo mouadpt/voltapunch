@@ -10,7 +10,7 @@
             "show_stock": false,
             "show_sku": true,
             "show_barcode": false,
-            "barcode_label": "Barcode",
+            "barcode_label": "Código de barras",
             "show_rating": true,
             "hide_empty_star_rating": false,
             "show_custom_badges": false,
@@ -45,11 +45,11 @@
         "stock_bar": {
           "type": "stock_bar",
           "settings": {
-            "text_in_stock": "Usually ships within 24 hours",
+            "text_in_stock": "Normalmente enviado em 24 horas",
             "text_out_of_stock": "",
-            "text_low_inventory": "Low inventory - Hurry up!",
-            "text_on_backorder": "On backorder",
-            "text_preorder": "New stock coming soon!",
+            "text_low_inventory": "Stock reduzido - Seja rápido!",
+            "text_on_backorder": "Em encomenda pendente",
+            "text_preorder": "Novo stock brevemente!",
             "show_bottom_divider": false
           }
         },
@@ -79,7 +79,7 @@
         "complementary": {
           "type": "complementary",
           "settings": {
-            "title": "Frequently bought together",
+            "title": "Frequentemente comprados juntos",
             "count": 3,
             "show_vendor": true,
             "show_sku": false,
@@ -98,8 +98,8 @@
           "type": "info_box",
           "settings": {
             "enable_payment_icons": false,
-            "heading": "Ready to work out of the box!",
-            "text": "<p>All tools are delivered with essential accessories and easy-to-follow instructions. Unbox and start your projects with confidence!</p>",
+            "heading": "Pronto a usar!",
+            "text": "<p>Todas as ferramentas são entregues com os acessórios essenciais e instruções fáceis de seguir. Desembale e comece os seus projetos com confiança!</p>",
             "icon": "box-2",
             "color_foreground": "#004fc7",
             "color_background": "#f0f6ff",
@@ -110,11 +110,11 @@
           "type": "highlights",
           "settings": {
             "highlight_1_icon": "truck",
-            "highlight_1_text": "Free shipping",
+            "highlight_1_text": "Portes de envio grátis",
             "highlight_2_icon": "credit-card",
-            "highlight_2_text": "100% secure payments",
+            "highlight_2_text": "Pagamentos 100% seguros",
             "highlight_3_icon": "cog",
-            "highlight_3_text": "Industry leading quality",
+            "highlight_3_text": "Qualidade líder do setor",
             "highlights_layout": "horizontal",
             "color_scheme": "color-background-1",
             "show_bottom_divider": true,
@@ -126,7 +126,7 @@
         "extra": {
           "type": "extra",
           "settings": {
-            "text": "<p>Got questions?</p><p>Feel free to <a href=\"#\" title=\"Contact Us\">get in touch</a></p>",
+            "text": "<p>Tem dúvidas?</p><p>Não hesite em <a href=\"#\" title=\"Contact Us\">entrar em contacto</a></p>",
             "show_facebook": true,
             "show_twitter": true,
             "show_linkedin": true,
@@ -136,7 +136,7 @@
         "contact_details": {
           "type": "contact_details",
           "settings": {
-            "heading": "Ask an expert!",
+            "heading": "Fale com um especialista!",
             "image": "",
             "video_chat_link": "#",
             "chat_link": "#",
@@ -149,7 +149,7 @@
         "description": {
           "type": "description",
           "settings": {
-            "title": "Description",
+            "title": "Descrição",
             "icon": "info",
             "expanded": true,
             "custom_icon": ""
@@ -158,7 +158,7 @@
         "details": {
           "type": "details",
           "settings": {
-            "title": "Helpful documents",
+            "title": "Documentos úteis",
             "icon": "document",
             "position": "left",
             "expanded": false,
@@ -166,9 +166,9 @@
             "show_vendor": false,
             "show_sku": false,
             "show_barcode": false,
-            "barcode_label": "Barcode",
+            "barcode_label": "Código de barras",
             "metafields": "User manual: custom.user_manual\nSafety instructions: custom.safety_instructions",
-            "text": "<p>Additional text can be added before or after this table.</p>",
+            "text": "<p>Pode adicionar texto adicional antes ou depois desta tabela.</p>",
             "text_position": "after",
             "show_bottom_divider": false,
             "values_alignment": "right"
@@ -177,9 +177,9 @@
         "expandable-1": {
           "type": "expandable",
           "settings": {
-            "title": "Shipping information",
+            "title": "Informação de envio",
             "icon": "globe",
-            "text": "<p><strong>Order by 2PM to get delivered next working day!</strong> We use 24 hours service with carriers in most cases so that you can get your order delivered on time.</p><p>There is €4.99 charge for delivery under €50 Orders. Additional charges will be imposed by our couriers for delivery to remote area, a surcharge may be levied to cover carriage to these areas.</p>",
+            "text": "<p><strong>Encomende até às 14h00 para receber no dia útil seguinte!</strong> Na maioria dos casos, trabalhamos com transportadoras com serviço de 24 horas para que receba a sua encomenda a tempo.</p><p>Existe uma taxa de €4,99 para entregas em encomendas abaixo de €50. Poderão ser aplicadas taxas adicionais pelas nossas transportadoras para entregas em zonas remotas, podendo ser cobrada uma sobretaxa para cobrir o transporte até essas áreas.</p>",
             "page": "",
             "expanded": false,
             "custom_icon": ""
@@ -188,9 +188,9 @@
         "expandable-2": {
           "type": "expandable",
           "settings": {
-            "title": "Warranty",
+            "title": "Garantia",
             "icon": "shield",
-            "text": "<p>Your product is covered by a 12 month Warranty or more if you opted for the extended warranty. Make sure you register your product.</p>",
+            "text": "<p>O seu produto está coberto por uma garantia de 12 meses, ou mais se optou pela garantia alargada. Certifique-se de que regista o seu produto.</p>",
             "page": "",
             "expanded": false,
             "custom_icon": ""
@@ -229,7 +229,7 @@
         "thumbnail_navigation": true,
         "image_zoom_type": "lightbox_zoom_hover",
         "image_ratio": "adapt",
-        "image_disclaimer": "<p><strong>Disclaimer:</strong> Actual product colors may vary slightly from the images shown due to different monitor settings and lighting conditions during photo shoots.</p>",
+        "image_disclaimer": "<p><strong>Aviso:</strong> As cores reais do produto podem variar ligeiramente das imagens apresentadas devido a diferentes definições de monitor e condições de iluminação durante as sessões fotográficas.</p>",
         "collapse_other_expandables": false,
         "thumbnails_position": "left",
         "spacing_mode": "desktop",
@@ -243,7 +243,7 @@
       "type": "bulk-order",
       "name": "t:sections.bulk_order.presets.name",
       "settings": {
-        "heading": "Buy in bulk",
+        "heading": "Compre a granel",
         "heading_size": "md",
         "headings_alignment": "left",
         "subheading": "",
@@ -266,7 +266,7 @@
       "type": "product-recommendations",
       "settings": {
         "show": true,
-        "title": "Related products",
+        "title": "Produtos relacionados",
         "heading_size": "md",
         "headings_alignment": "left",
         "count": "4",
@@ -288,7 +288,7 @@
       "type": "recently-viewed-products",
       "settings": {
         "products_to_show": 5,
-        "heading": "Recently viewed",
+        "heading": "Vistos recentemente",
         "heading_size": "md",
         "headings_alignment": "left",
         "subheading": "",

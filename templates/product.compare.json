@@ -6,31 +6,31 @@
         "price": {
           "type": "price",
           "settings": {
-            "heading": "Price"
+            "heading": "Preço"
           }
         },
         "vendor": {
           "type": "vendor",
           "settings": {
-            "heading": "Vendor"
+            "heading": "Fornecedor"
           }
         },
         "rating": {
           "type": "rating",
           "settings": {
-            "heading": "Rating"
+            "heading": "Avaliação"
           }
         },
         "sku": {
           "type": "sku",
           "settings": {
-            "heading": "SKU"
+            "heading": "Referência"
           }
         },
         "stock_availability": {
           "type": "stock_availability",
           "settings": {
-            "heading": "Stock availability"
+            "heading": "Disponibilidade em stock"
           }
         }
       },

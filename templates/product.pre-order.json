@@ -10,7 +10,7 @@
             "show_stock": true,
             "show_sku": true,
             "show_barcode": false,
-            "barcode_label": "Barcode",
+            "barcode_label": "Código de barras",
             "show_rating": false,
             "hide_empty_star_rating": false,
             "show_custom_badges": false,
@@ -69,8 +69,8 @@
           "type": "request_information",
           "settings": {
             "expanded": false,
-            "heading": "Have questions?",
-            "description": "<p>Fill in the form below, and we'll get back to you with more information as soon as possible.</p>",
+            "heading": "Tem dúvidas?",
+            "description": "<p>Preencha o formulário abaixo e entraremos em contacto consigo com mais informações assim que possível.</p>",
             "color_scheme": "background-2",
             "show_bottom_divider": false
           }
@@ -79,8 +79,8 @@
           "type": "info_box",
           "settings": {
             "enable_payment_icons": true,
-            "heading": "Accepted payment methods",
-            "text": "<p>We accept a variety of trusted payment methods.</p>",
+            "heading": "Métodos de pagamento aceites",
+            "text": "<p>Aceitamos uma variedade de métodos de pagamento fiáveis.</p>",
             "icon": "info",
             "color_foreground": "#004fc7",
             "color_background": "#f0f6ff",
@@ -96,7 +96,7 @@
         "extra": {
           "type": "extra",
           "settings": {
-            "text": "<p>Got questions?</p><p>Feel free to <a href=\"#\" title=\"Contact Us\">get in touch</a></p>",
+            "text": "<p>Tem dúvidas?</p><p>Não hesite em <a href=\"#\" title=\"Contact Us\">entrar em contacto</a></p>",
             "show_facebook": true,
             "show_twitter": true,
             "show_linkedin": true,
@@ -106,7 +106,7 @@
         "contact_details": {
           "type": "contact_details",
           "settings": {
-            "heading": "...or just ask an expert!",
+            "heading": "...ou simplesmente fale com um especialista!",
             "image": "",
             "video_chat_link": "#",
             "chat_link": "#",
@@ -119,7 +119,7 @@
         "description": {
           "type": "description",
           "settings": {
-            "title": "Description",
+            "title": "Descrição",
             "icon": "info",
             "expanded": true,
             "custom_icon": ""
@@ -128,7 +128,7 @@
         "details": {
           "type": "details",
           "settings": {
-            "title": "Helpful documents",
+            "title": "Documentos úteis",
             "icon": "document",
             "position": "left",
             "expanded": false,
@@ -136,9 +136,9 @@
             "show_vendor": false,
             "show_sku": false,
             "show_barcode": true,
-            "barcode_label": "Barcode",
+            "barcode_label": "Código de barras",
             "metafields": "User manual: custom.user_manual\nSafety instructions: custom.safety_instructions",
-            "text": "<p>Additional text can be added before or after this table.</p>",
+            "text": "<p>Pode adicionar texto adicional antes ou depois desta tabela.</p>",
             "text_position": "after",
             "show_bottom_divider": false,
             "values_alignment": "right"
@@ -189,9 +189,9 @@
         "expandable-1": {
           "type": "expandable",
           "settings": {
-            "heading": "How do pre-orders work?",
+            "heading": "Como funcionam as pré-encomendas?",
             "icon": "info",
-            "text": "<p>Pre-orders allow you to reserve a product before it is officially available. By placing a preorder, you guarantee that you will receive the product as soon as it is in stock. We will notify you via email with updates on your order status and shipping information.</p>",
+            "text": "<p>As pré-encomendas permitem-lhe reservar um produto antes de este estar oficialmente disponível. Ao efetuar uma pré-encomenda, garante que receberá o produto assim que estiver em stock. Iremos notificá-lo por e-mail com atualizações sobre o estado da sua encomenda e informações de envio.</p>",
             "expanded": true,
             "page": ""
           }
@@ -199,9 +199,9 @@
         "expandable-2": {
           "type": "expandable",
           "settings": {
-            "heading": "When will my pre-order ship?",
+            "heading": "Quando será enviada a minha pré-encomenda?",
             "icon": "info",
-            "text": "<p>Preordered items are expected to ship within <strong>2-4 weeks</strong> of placing your order. We will do our best to keep you updated on the exact shipping date and notify you as soon as your product has been dispatched.</p>",
+            "text": "<p>Prevê-se que os artigos em pré-encomenda sejam enviados no prazo de <strong>2 a 4 semanas</strong> após a colocação da sua encomenda. Faremos o possível para o manter atualizado sobre a data exata de envio e notificá-lo assim que o seu produto for expedido.</p>",
             "expanded": false,
             "page": ""
           }
@@ -209,9 +209,9 @@
         "expandable-3": {
           "type": "expandable",
           "settings": {
-            "heading": "Can I cancel or change my preorder?",
+            "heading": "Posso cancelar ou alterar a minha pré-encomenda?",
             "icon": "info",
-            "text": "<p>Yes, you can cancel or modify your pre-order as long as it has not yet been processed for shipment. Please <a href=\"#\" title=\"Contact Us\">contact our customer service team</a> to make changes to your order.</p>",
+            "text": "<p>Sim, pode cancelar ou modificar a sua pré-encomenda desde que ainda não tenha sido processada para envio. Por favor, <a href=\"#\" title=\"Contact Us\">contacte a nossa equipa de apoio ao cliente</a> para efetuar alterações à sua encomenda.</p>",
             "expanded": false,
             "page": ""
           }
@@ -219,9 +219,9 @@
         "expandable-4": {
           "type": "expandable",
           "settings": {
-            "heading": "Will I be charged immediately for my preorder?",
+            "heading": "Serei cobrado imediatamente pela minha pré-encomenda?",
             "icon": "info",
-            "text": "<p>Yes, payment is processed at the time of placing your preorder to secure your product. This ensures that your item is reserved and will be shipped to you as soon as it becomes available.</p>",
+            "text": "<p>Sim, o pagamento é processado no momento em que efetua a sua pré-encomenda para garantir o seu produto. Isto assegura que o seu artigo fica reservado e será enviado assim que estiver disponível.</p>",
             "expanded": false,
             "page": ""
           }
@@ -235,7 +235,7 @@
       ],
       "settings": {
         "narrow": false,
-        "heading": "Frequently Asked Questions",
+        "heading": "Perguntas Frequentes",
         "heading_size": "md",
         "subheading": "",
         "heading_alignment": "left",
@@ -255,7 +255,7 @@
       "type": "product-recommendations",
       "settings": {
         "show": true,
-        "title": "Related products",
+        "title": "Produtos relacionados",
         "count": "4",
         "mobile_columns": "1",
         "show_vendor": true,
@@ -277,7 +277,7 @@
       "type": "recently-viewed-products",
       "settings": {
         "products_to_show": 5,
-        "heading": "Recently viewed",
+        "heading": "Vistos recentemente",
         "heading_size": "md",
         "subheading": "",
         "show_vendor": true,
