@@ -180,7 +180,7 @@
           "settings": {
             "title": "Informação de envio",
             "icon": "globe",
-            "text": "<p><strong>Encomende até às 14h00 para receber no dia útil seguinte!</strong> Na maioria dos casos, trabalhamos com transportadoras com serviço de 24 horas para que receba a sua encomenda a tempo.</p><p>Existe uma taxa de €4,99 para entregas em encomendas abaixo de €50. Poderão ser aplicadas taxas adicionais pelas nossas transportadoras para entregas em zonas remotas, podendo ser cobrada uma sobretaxa para cobrir o transporte até essas áreas.</p>",
+            "text": "<p><strong>🚚 Entrega Rápida</strong><br/><br/>Encomende antes das 14:00h e receba no dia útil seguinte (Portugal Continental).*<br/><br/>Portugal e Espanha: <strong>24-48h úteis</strong><br/>União Europeia:<strong> 2-4 dias úteis</strong><br/><strong>Portes grátis</strong> em encomendas superiores a <strong>70€</strong></p>",
             "page": "",
             "expanded": false
           }
