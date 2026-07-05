@@ -1,0 +1,242 @@
+{% liquid
+  assign color_scheme_string = section.settings.color_scheme | append: ''
+  assign section_content_class = 'section-content'
+  unless color_scheme_string == 'background-1'
+    assign section_content_class = section_content_class | append: ' section-content-padded'
+  endunless
+
+  assign columns_count = section.blocks.size
+  assign columns_layout_class = 'flexi-features-columns-' | append: columns_count
+  if columns_count == 1
+    assign columns_layout_class = columns_layout_class | append: ' flexi-features-columns-centered'
+  endif
+%}
+
+<style>
+  #shopify-section-{{ section.id }} .section-content {
+    margin-top: {{ section.settings.spacing_top_mobile }}px;
+    margin-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+  }
+
+  #shopify-section-{{ section.id }} .section-content-padded {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: {{ section.settings.spacing_top_mobile }}px;
+    padding-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+  }
+
+  @media (min-width: 990px) {
+    #shopify-section-{{ section.id }} .section-content {
+      margin-top: {{ section.settings.spacing_top }}px;
+      margin-bottom: {{ section.settings.spacing_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content-padded {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: {{ section.settings.spacing_top }}px;
+      padding-bottom: {{ section.settings.spacing_bottom }}px;
+    }
+  }
+</style>
+
+{{ 'section-flexi-features.css' | asset_url | stylesheet_tag }}
+
+{%- capture visibility_classes -%}{%- render 'section-visibility-classes' -%}{%- endcapture -%}
+{%- assign visibility_classes = visibility_classes | strip -%}
+
+<div class="{{ visibility_classes }}">
+  <div class="color-{{ section.settings.color_scheme }}">
+    <div class="container">
+      <div class="{{ section_content_class }}">
+        <div class="flexi-features-columns {{ columns_layout_class }}">
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.flexi_features.name",
+    "tag": "section",
+    "class": "flexi-features-section",
+    "disabled_on": {
+      "groups": ["header", "footer", "custom.overlays"]
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.all.layout.heading"
+      },
+      {
+        "type": "checkbox",
+        "id": "inline",
+        "default": false,
+        "label": "t:sections.features.settings.inline.label",
+        "info": "t:sections.features.settings.inline.info"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.colors.heading"
+      },
+      {
+        "type": "color_scheme",
+        "id": "content_color_scheme",
+        "label": "t:sections.all.colors.content_color_scheme.label",
+        "default": "background-1",
+        "visible_if": "{{ section.settings.inline == false }}"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.color_scheme.label",
+        "default": "background-1"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.section_spacing.heading"
+      },
+      {
+        "type": "select",
+        "id": "spacing_mode",
+        "label": "t:sections.all.section_spacing.spacing_mode.label",
+        "default": "desktop",
+        "options": [
+          {
+            "value": "desktop",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.desktop"
+          },
+          {
+            "value": "mobile",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.mobile"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "spacing_top",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_top_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.advanced.visibility_heading.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_desktop",
+        "default": true,
+        "label": "t:sections.all.advanced.show_on_desktop.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_mobile",
+        "default": true,
+        "label": "t:sections.all.advanced.show_on_mobile.label"
+      }
+    ],
+    "blocks": [{ "type": "_flexi-features-column" }],
+    "max_blocks": 2,
+    "presets": [
+      {
+        "name": "t:sections.flexi_features.presets.name",
+        "category": "t:sections.all.preset_category.flexi",
+        "blocks": [
+          {
+            "type": "_flexi-features-column",
+            "blocks": [
+              {
+                "type": "_flexi-heading",
+                "settings": {
+                  "text": "Why Choose Us"
+                }
+              },
+              {
+                "type": "_flexi-richtext",
+                "settings": {
+                  "text": "<p>Discover the benefits of shopping with us. We're committed to providing you with the best experience possible.</p>"
+                }
+              },
+              {
+                "type": "_flexi-button",
+                "settings": {
+                  "button_label": "Learn more"
+                }
+              }
+            ]
+          },
+          {
+            "type": "_flexi-features-column",
+            "blocks": [
+              {
+                "type": "_flexi-feature-group",
+                "blocks": [
+                  {
+                    "type": "_flexi-feature",
+                    "settings": {
+                      "icon": "truck",
+                      "title": "Free Shipping",
+                      "text": "<p>Free shipping on all orders over $50.</p>"
+                    }
+                  },
+                  {
+                    "type": "_flexi-feature",
+                    "settings": {
+                      "icon": "returns",
+                      "title": "Easy Returns",
+                      "text": "<p>30-day hassle-free return policy.</p>"
+                    }
+                  },
+                  {
+                    "type": "_flexi-feature",
+                    "settings": {
+                      "icon": "shield",
+                      "title": "Secure Payment",
+                      "text": "<p>Your payment information is always protected.</p>"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

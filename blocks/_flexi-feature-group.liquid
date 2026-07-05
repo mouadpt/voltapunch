@@ -1,0 +1,62 @@
+{% liquid
+  assign columns_class = 'flexi-feature-group-columns-' | append: block.settings.columns_per_row
+  assign icon_size_class = 'flexi-feature-group-icon-' | append: block.settings.icon_size
+%}
+
+<div
+  class="flexi-block flexi-feature-group {{ columns_class }} {{ icon_size_class }} {% if section.settings.inline %}flexi-feature-group-inline{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  <div class="flexi-feature-grid">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:theme_blocks._flexi_feature_group.name",
+    "class": "flexi-block flexi-feature-group",
+    "settings": [
+      {
+        "type": "select",
+        "id": "columns_per_row",
+        "label": "t:theme_blocks._flexi_feature_group.settings.columns_per_row.label",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "t:theme_blocks._flexi_feature_group.settings.columns_per_row.options.one"
+          },
+          {
+            "value": "2",
+            "label": "t:theme_blocks._flexi_feature_group.settings.columns_per_row.options.two"
+          }
+        ]
+      },
+      {
+        "id": "icon_size",
+        "label": "t:theme_blocks._flexi_feature_group.settings.icon_size.label",
+        "type": "select",
+        "default": "large",
+        "options": [
+          {
+            "value": "small",
+            "label": "t:theme_blocks._flexi_feature_group.settings.icon_size.options.small"
+          },
+          {
+            "value": "large",
+            "label": "t:theme_blocks._flexi_feature_group.settings.icon_size.options.large"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      { "type": "_flexi-feature" }
+    ],
+    "presets": [
+      {
+        "name": "t:theme_blocks._flexi_feature_group.name"
+      }
+    ]
+  }
+{% endschema %}

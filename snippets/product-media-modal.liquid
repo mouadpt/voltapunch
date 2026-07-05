@@ -1,0 +1,60 @@
+{% doc %}
+  Renders the product media modal
+
+  @param {object} section - Section object.
+  @param {object} product - Product object.
+  @param {object} variant_images - Array of variant images.
+
+  @example
+  {% render 'product-media-modal', product: product, section: section, variant_images: variant_images %}
+{% enddoc %}
+
+{% if section.settings.image_zoom_type != 'none' %}
+  <product-modal
+    id="ProductModal-{{ section.id }}"
+    class="product-media-modal media-modal"
+  >
+    <div
+      class="product-media-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'products.product.media.gallery' | t }}"
+      tabindex="-1"
+    >
+      <button
+        id="ModalClose-{{ section.id }}"
+        type="button"
+        class="product-media-modal-toggle"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {% render 'icons', icon: 'cross' %}
+      </button>
+      <div
+        class="product-media-modal-content"
+        role="document"
+        aria-label="{{ 'products.product.media.gallery' | t }}"
+        tabindex="0"
+      >
+        {%- liquid
+          assign featured_media = product.selected_or_first_available_variant.featured_media | default: settings.product_placeholder_image
+          if featured_media
+            render 'product-gallery-media-modal', media: featured_media, variant_image: section.settings.hide_variants
+          endif
+        -%}
+
+        {%- for media in product.media -%}
+          {%- liquid
+            assign variant_image = false
+            if section.settings.hide_variants and variant_images contains media.src
+              assign variant_image = true
+            endif
+
+            unless media.id == featured_media.id or variant_image
+              render 'product-gallery-media-modal', media: media, variant_image: variant_image
+            endunless
+          -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </product-modal>
+{% endif %}

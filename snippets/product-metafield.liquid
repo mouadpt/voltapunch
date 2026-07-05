@@ -1,0 +1,24 @@
+{% doc %}
+  Renders a product's metafield, from a namespace.key path.
+  @param {object} product - Product object
+  @param {string} metafield - A metafield namespace.key path.
+  @example
+  {% render 'product-metafield', product: product, metafield: block.settings.metafield %}
+{% enddoc %}
+
+{% liquid
+  assign fields = metafield | strip | split: '.'
+  assign field_source = fields[-3]
+%}
+
+{% # white-space: normal %}
+{% capture text %}
+  {% render 'product-metafield-output', product: product, metafield: metafield %}
+{% endcapture %}
+{% assign text = text | strip %}
+
+{% if text != blank %}
+  <span class="product-info-single-metafield-value {% if field_source == 'variant' %}product-info-single-variant-metafield{% endif %}">
+    {{ text }}
+  </span>
+{% endif %}

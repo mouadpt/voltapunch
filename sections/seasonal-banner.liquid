@@ -1,0 +1,931 @@
+{% liquid
+  assign is_empty = true
+  assign has_background = false
+  assign has_preset_background = false
+  assign background_image_url = blank
+  assign has_mobile_image = false
+  assign apply_mobile_repeat = false
+  assign apply_mobile_animate = false
+  assign apply_desktop_repeat = false
+  assign apply_desktop_animate = false
+
+  if section.settings.background_preset == 'custom'
+    if section.settings.background_image != blank
+      assign has_background = true
+    endif
+  else
+    assign has_background = true
+    assign has_preset_background = true
+    assign background_image_url = 'seasonal_' | append: section.settings.background_preset | append: '.png' | asset_url
+  endif
+
+  for block in section.blocks
+    if has_background and block.settings.heading != blank or block.settings.text != blank or block.settings.button_label != blank
+      assign is_empty = false
+    endif
+  endfor
+
+  assign hide_because_empty = false
+  if request.design_mode == false and section.settings.hide_if_empty and is_empty
+    assign hide_because_empty = true
+  endif
+
+  assign hide_because_scheduled = false
+  assign now = 'now' | date: '%s'
+
+  for block in section.blocks
+    if block.type == 'countdown'
+      if block.settings.start_date != blank
+        assign start_full_date = block.settings.start_date
+        if block.settings.start_time != blank
+          assign start_full_date = start_full_date | append: ' ' | append: block.settings.start_time
+        else
+          assign start_full_date = start_full_date | append: ' 00:00'
+        endif
+        assign start_timestamp = start_full_date | date: '%s'
+        if now < start_timestamp
+          assign hide_because_scheduled = true
+        endif
+      endif
+
+      if block.settings.hide_on_expiration and block.settings.end_date != blank
+        assign end_full_date = block.settings.end_date
+        if block.settings.end_time != blank
+          assign end_full_date = end_full_date | append: ' ' | append: block.settings.end_time
+        else
+          assign end_full_date = end_full_date | append: ' 00:00'
+        endif
+        assign end_timestamp = end_full_date | date: '%s'
+        if now > end_timestamp
+          assign hide_because_scheduled = true
+        endif
+      endif
+      break
+    endif
+  endfor
+
+  if section.settings.mobile_image != blank
+    assign has_mobile_image = true
+  endif
+
+  if has_preset_background or section.settings.repeat_background
+    assign apply_desktop_repeat = true
+  endif
+
+  if apply_desktop_repeat and section.settings.animate_background
+    assign apply_desktop_animate = true
+  endif
+
+  if has_mobile_image
+    if section.settings.repeat_background_mobile
+      assign apply_mobile_repeat = true
+    endif
+    if apply_mobile_repeat and section.settings.animate_background_mobile
+      assign apply_mobile_animate = true
+    endif
+  else
+    assign apply_mobile_repeat = apply_desktop_repeat
+    assign apply_mobile_animate = apply_desktop_animate
+  endif
+%}
+{%- unless hide_because_empty or hide_because_scheduled -%}
+  {{ 'section-seasonal-banner.css' | asset_url | stylesheet_tag }}
+
+  <style>
+    #shopify-section-{{ section.id }} .section-content {
+      margin-top: {{ section.settings.spacing_top_mobile }}px;
+      margin-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+    }
+
+    @media (min-width: 990px) {
+      #shopify-section-{{ section.id }} .section-content {
+        margin-top: {{ section.settings.spacing_top }}px;
+        margin-bottom: {{ section.settings.spacing_bottom }}px;
+      }
+    }
+
+    {% if has_mobile_image %}
+      @media (max-width: 749px) {
+        #shopify-section-{{ section.id }} .seasonal-banner-backdrop {
+          object-position: {{ section.settings.mobile_image.presentation.focal_point }} !important;
+        }
+      }
+    {% endif %}
+
+    {% if apply_mobile_repeat or apply_desktop_repeat %}
+      {% liquid
+        assign mobile_bg_url = background_image_url
+        assign desktop_bg_url = background_image_url
+
+        unless has_preset_background
+          if section.settings.background_image != blank
+            assign desktop_bg_url = section.settings.background_image | image_url: width: 800
+          endif
+        endunless
+
+        if has_mobile_image
+          assign mobile_bg_url = section.settings.mobile_image | image_url: width: 1000
+        elsif has_preset_background == false and section.settings.background_image != blank
+          assign mobile_bg_url = section.settings.background_image | image_url: width: 1000
+        endif
+      %}
+
+      #shopify-section-{{ section.id }} .seasonal-banner-backdrop-repeat {
+        {% if apply_mobile_repeat %}
+          background-image: url('{{ mobile_bg_url }}');
+          background-repeat: repeat;
+          background-size: auto;
+        {% else %}
+          background-image: url('{{ mobile_bg_url }}');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        {% endif %}
+      }
+
+      @media (min-width: 750px) {
+        #shopify-section-{{ section.id }} .seasonal-banner-backdrop-repeat {
+          {% if apply_desktop_repeat %}
+            background-image: url('{{ desktop_bg_url }}');
+            background-repeat: repeat;
+            background-size: auto;
+          {% else %}
+            background-image: url('{{ desktop_bg_url }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          {% endif %}
+        }
+      }
+    {% endif %}
+  </style>
+
+  {%- capture visibility_classes -%}{%- render 'section-visibility-classes' -%}{%- endcapture -%}
+  {%- assign visibility_classes = visibility_classes | strip -%}
+
+  <div class="{{ visibility_classes }}">
+    <div class="{% if section.settings.full_width %}section-fullwidth{% else %}container{% endif %}">
+      <div class="section-content">
+        <div class="seasonal-banner-wrap seasonal-banner-wrap-{{ section.settings.height }}">
+          {%- if has_preset_background
+            or section.settings.background_image != blank
+            or section.settings.mobile_image != blank
+          -%}
+            {% liquid
+              assign use_repeat_bg = false
+              if apply_mobile_repeat or apply_desktop_repeat
+                assign use_repeat_bg = true
+              endif
+            %}
+
+            {% if use_repeat_bg %}
+              <div
+                class="seasonal-banner-backdrop-repeat{% if apply_mobile_animate %} seasonal-banner-animate-mobile{% endif %}{% if apply_desktop_animate %} seasonal-banner-animate-desktop{% endif %}"
+                aria-hidden="true"
+              ></div>
+            {% else %}
+              {% capture image_sizes %}
+                {% if section.settings.full_width == true %}
+                  100vw
+                {% else %}
+                  (min-width: 1420px) 1420px, calc(100vw - 3rem)
+                {% endif %}
+              {% endcapture %}
+
+              {% liquid
+                assign loading = 'lazy'
+                assign fetchpriority = 'auto'
+                if section.index == 1
+                  assign loading = 'eager'
+                  assign fetchpriority = 'high'
+                endif
+              %}
+
+              <picture>
+                {% if section.settings.mobile_image %}
+                  <source
+                    srcset="
+                      {% if section.settings.mobile_image.width >= 375 %}{{ section.settings.mobile_image | image_url: width: 375 }} 375w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 550 %}{{ section.settings.mobile_image | image_url: width: 550 }} 550w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 750 %}{{ section.settings.mobile_image | image_url: width: 750 }} 750w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 1100 %}{{ section.settings.mobile_image | image_url: width: 1100 }} 1100w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 1420 %}{{ section.settings.mobile_image | image_url: width: 1420 }} 1420w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 2000 %}{{ section.settings.mobile_image | image_url: width: 2000 }} 2000w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 2480 %}{{ section.settings.mobile_image | image_url: width: 2480 }} 2480w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 3000 %}{{ section.settings.mobile_image | image_url: width: 3000 }} 3000w,{% endif %}
+                      {% if section.settings.mobile_image.width >= 3840 %}{{ section.settings.mobile_image | image_url: width: 3840 }} 3840w,{% endif %}
+                      {{ section.settings.mobile_image | image_url }} {{ section.settings.mobile_image.width }}w
+                    "
+                    sizes="{{ image_sizes }}"
+                    media="(max-width: 749px)"
+                  >
+                {% endif %}
+                {{
+                  section.settings.background_image
+                  | image_url: width: 3840
+                  | image_tag:
+                    class: 'seasonal-banner-backdrop',
+                    widths: '375, 550, 750, 1100, 1420, 2000, 2480, 3000, 3840',
+                    loading: loading,
+                    fetchpriority: fetchpriority
+                }}
+              </picture>
+            {% endif %}
+          {%- endif -%}
+
+          <div class="seasonal-banner-content-wrap container">
+            <div class="seasonal-banner-content-box color-{{ section.settings.content_color_scheme }}">
+              <div class="seasonal-banner-content">
+                {% for block in section.blocks %}
+                  {% case block.type %}
+                    {% when 'heading' %}
+                      {% if block.settings.heading != blank %}
+                        <{{ block.settings.heading_tag }}
+                          class="seasonal-banner-heading seasonal-banner-heading-{{ block.settings.mobile_heading_size }} seasonal-banner-heading-desktop-{{ block.settings.heading_size }}"
+                          {{ block.shopify_attributes }}
+                        >
+                          {{- block.settings.heading -}}
+                        </{{ block.settings.heading_tag }}>
+                      {% endif %}
+
+                    {% when 'text' %}
+                      {% if block.settings.text != blank %}
+                        <div
+                          class="seasonal-banner-text rte text-size-{{ block.settings.text_size }}"
+                          {{ block.shopify_attributes }}
+                        >
+                          {{ block.settings.text }}
+                        </div>
+                      {% endif %}
+
+                    {% when 'button' %}
+                      {% if block.settings.button_label != blank %}
+                        <div class="seasonal-banner-buttons" {{ block.shopify_attributes }}>
+                          {% if block.settings.enable_coupon_code %}
+                            <copy-to-clipboard
+                              data-tooltip-text="{{ 'general.copy_to_clipboard.tooltip' | t }}"
+                              data-copied-text="{{ 'general.copy_to_clipboard.copied' | t }}"
+                            >
+                              <button
+                                type="button"
+                                class="{% if block.settings.button_type_link %}button-text-link{% else %}button button-large-desktop{% endif %}"
+                              >
+                                {{ block.settings.button_label }}
+                                {%- render 'icons', icon: 'copy' -%}
+                              </button>
+                            </copy-to-clipboard>
+                          {% else %}
+                            <a
+                              {% if block.settings.button_link %}
+                                href="{{ block.settings.button_link }}"
+                                {% if block.settings.link_new_window %}target="_blank"{% endif %}
+                              {% else %}
+                                role="link" aria-disabled="true"
+                              {% endif %}
+                              class="{% if block.settings.button_type_link %}button-text-link{% else %}button button-large-desktop{% endif %}"
+                            >
+                              {{ block.settings.button_label }}
+                            </a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+
+                    {% when 'countdown' %}
+                      {% liquid
+                        assign now = 'now' | date: '%s'
+                        assign full_date = now | date: '%Y-%m-%d'
+                        if block.settings.end_date
+                          assign full_date = block.settings.end_date
+                        endif
+                        if block.settings.end_time
+                          assign full_date = full_date | append: ' ' | append: block.settings.end_time
+                        else
+                          assign full_date = full_date | append: ' 00:00'
+                        endif
+                        assign expiration_date = full_date | date: '%s'
+                      %}
+                      {% unless request.design_mode == false
+                        and block.settings.hide_on_expiration
+                        and now > expiration_date
+                      %}
+                        <div class="seasonal-banner-countdown" {{ block.shopify_attributes }}>
+                          {% render 'countdown',
+                            expiration_date: expiration_date,
+                            expiration_message: block.settings.expiration_message
+                          %}
+                        </div>
+                      {% endunless %}
+                  {% endcase %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endunless -%}
+
+{% schema %}
+  {
+    "name": "t:sections.seasonal_banner.name",
+    "tag": "section",
+    "class": "section section-seasonal-banner",
+    "disabled_on": {
+      "groups": ["header", "footer", "custom.overlays"]
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.seasonal_banner.settings.header_background.content"
+      },
+      {
+        "type": "select",
+        "id": "background_preset",
+        "label": "t:sections.seasonal_banner.settings.background_preset.label",
+        "default": "black_friday_01",
+        "options": [
+          {
+            "value": "custom",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.custom"
+          },
+          {
+            "value": "black_friday_01",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.black_friday_01"
+          },
+          {
+            "value": "black_friday_02",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.black_friday_02"
+          },
+          {
+            "value": "black_friday_03",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.black_friday_03"
+          },
+          {
+            "value": "black_friday_04",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.black_friday_04"
+          },
+          {
+            "value": "christmas_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_1"
+          },
+          {
+            "value": "christmas_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_2"
+          },
+          {
+            "value": "christmas_3",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_3"
+          },
+          {
+            "value": "christmas_4",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_4"
+          },
+          {
+            "value": "christmas_5",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_5"
+          },
+          {
+            "value": "christmas_6",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_6"
+          },
+          {
+            "value": "christmas_7",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.christmas_7"
+          },
+          {
+            "value": "cyber_monday_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.cyber_monday_1"
+          },
+          {
+            "value": "cyber_monday_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.cyber_monday_2"
+          },
+          {
+            "value": "cyber_monday_3",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.cyber_monday_3"
+          },
+          {
+            "value": "cyber_monday_4",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.cyber_monday_4"
+          },
+          {
+            "value": "cyber_monday_5",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.cyber_monday_5"
+          },
+          {
+            "value": "halloween_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.halloween_1"
+          },
+          {
+            "value": "halloween_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.halloween_2"
+          },
+          {
+            "value": "halloween_3",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.halloween_3"
+          },
+          {
+            "value": "halloween_4",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.halloween_4"
+          },
+          {
+            "value": "new_year_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.new_year_1"
+          },
+          {
+            "value": "new_year_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.new_year_2"
+          },
+          {
+            "value": "new_year_3",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.new_year_3"
+          },
+          {
+            "value": "new_year_4",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.new_year_4"
+          },
+          {
+            "value": "new_year_5",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.new_year_5"
+          },
+          {
+            "value": "new_year_6",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.new_year_6"
+          },
+          {
+            "value": "sale_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_1"
+          },
+          {
+            "value": "sale_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_2"
+          },
+          {
+            "value": "sale_3",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_3"
+          },
+          {
+            "value": "sale_4",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_4"
+          },
+          {
+            "value": "sale_5",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_5"
+          },
+          {
+            "value": "sale_6",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_6"
+          },
+          {
+            "value": "sale_7",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_7"
+          },
+          {
+            "value": "sale_8",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_8"
+          },
+          {
+            "value": "sale_9",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_9"
+          },
+          {
+            "value": "sale_10",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.sale_10"
+          },
+          {
+            "value": "summer_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.summer_1"
+          },
+          {
+            "value": "summer_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.summer_2"
+          },
+          {
+            "value": "valentine_1",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.valentine_1"
+          },
+          {
+            "value": "valentine_2",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.valentine_2"
+          },
+          {
+            "value": "valentine_3",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.valentine_3"
+          },
+          {
+            "value": "valentine_4",
+            "label": "t:sections.seasonal_banner.settings.background_preset.options.valentine_4"
+          }
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "t:sections.seasonal_banner.settings.background_image.label",
+        "visible_if": "{{ section.settings.background_preset == 'custom' }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "repeat_background",
+        "label": "t:sections.seasonal_banner.settings.repeat_background.label",
+        "info": "t:sections.seasonal_banner.settings.repeat_background.info",
+        "default": false,
+        "visible_if": "{{ section.settings.background_preset == 'custom' and section.settings.background_image != blank }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "animate_background",
+        "label": "t:sections.seasonal_banner.settings.animate_background.label",
+        "info": "t:sections.seasonal_banner.settings.animate_background.info",
+        "default": true,
+        "visible_if": "{{ section.settings.background_preset != 'custom' or section.settings.repeat_background }}"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "t:sections.seasonal_banner.settings.mobile_image.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "repeat_background_mobile",
+        "label": "t:sections.seasonal_banner.settings.repeat_background_mobile.label",
+        "info": "t:sections.seasonal_banner.settings.repeat_background_mobile.info",
+        "default": false,
+        "visible_if": "{{ section.settings.mobile_image != blank }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "animate_background_mobile",
+        "label": "t:sections.seasonal_banner.settings.animate_background_mobile.label",
+        "info": "t:sections.seasonal_banner.settings.animate_background_mobile.info",
+        "default": false,
+        "visible_if": "{{ section.settings.mobile_image != blank and section.settings.repeat_background_mobile }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.seasonal_banner.settings.header_content_box.content"
+      },
+      {
+        "type": "color_scheme",
+        "id": "content_color_scheme",
+        "label": "t:sections.seasonal_banner.settings.content_color_scheme.label",
+        "default": "accent-3"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.layout.heading"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "t:sections.seasonal_banner.settings.full_width.label",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "height",
+        "label": "t:sections.seasonal_banner.settings.height.label",
+        "default": "medium",
+        "options": [
+          {
+            "value": "small",
+            "label": "t:sections.seasonal_banner.settings.height.options.label_small"
+          },
+          {
+            "value": "medium",
+            "label": "t:sections.seasonal_banner.settings.height.options.label_medium"
+          },
+          {
+            "value": "large",
+            "label": "t:sections.seasonal_banner.settings.height.options.label_large"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.section_spacing.heading"
+      },
+      {
+        "type": "select",
+        "id": "spacing_mode",
+        "label": "t:sections.all.section_spacing.spacing_mode.label",
+        "default": "desktop",
+        "options": [
+          {
+            "value": "desktop",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.desktop"
+          },
+          {
+            "value": "mobile",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.mobile"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "spacing_top",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_top_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.advanced.visibility_heading.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_desktop",
+        "default": true,
+        "label": "t:sections.all.advanced.show_on_desktop.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_mobile",
+        "default": true,
+        "label": "t:sections.all.advanced.show_on_mobile.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_if_empty",
+        "default": false,
+        "label": "t:sections.seasonal_banner.settings.hide_if_empty.label",
+        "info": "t:sections.all.advanced.hide_if_empty.info"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "heading",
+        "name": "t:sections.seasonal_banner.blocks.heading.name",
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "default": "Seasonal Sale",
+            "label": "t:sections.seasonal_banner.blocks.heading.settings.heading.label"
+          },
+          {
+            "type": "select",
+            "id": "heading_size",
+            "label": "t:sections.all.heading_size.label",
+            "default": "xl",
+            "options": [
+              {
+                "value": "sm",
+                "label": "t:sections.all.heading_size.options.label_sm"
+              },
+              {
+                "value": "md",
+                "label": "t:sections.all.heading_size.options.label_md"
+              },
+              {
+                "value": "lg",
+                "label": "t:sections.all.heading_size.options.label_lg"
+              },
+              {
+                "value": "xl",
+                "label": "t:sections.all.heading_size.options.label_xl"
+              },
+              {
+                "value": "xxl",
+                "label": "t:sections.all.heading_size.options.label_xxl"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "mobile_heading_size",
+            "label": "t:sections.seasonal_banner.blocks.heading.settings.mobile_heading_size.label",
+            "default": "lg",
+            "options": [
+              {
+                "value": "sm",
+                "label": "t:sections.all.heading_size.options.label_sm"
+              },
+              {
+                "value": "md",
+                "label": "t:sections.all.heading_size.options.label_md"
+              },
+              {
+                "value": "lg",
+                "label": "t:sections.all.heading_size.options.label_lg"
+              },
+              {
+                "value": "xl",
+                "label": "t:sections.all.heading_size.options.label_xl"
+              },
+              {
+                "value": "xxl",
+                "label": "t:sections.all.heading_size.options.label_xxl"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "heading_tag",
+            "label": "t:sections.all.advanced.heading_tag.label",
+            "default": "h2",
+            "options": [
+              {
+                "value": "h1",
+                "label": "H1"
+              },
+              {
+                "value": "h2",
+                "label": "H2"
+              },
+              {
+                "value": "h3",
+                "label": "H3"
+              },
+              {
+                "value": "h4",
+                "label": "H4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "t:sections.seasonal_banner.blocks.text.name",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "default": "<p>Use code <strong>SEASON24</strong> for 24% off all products</p>",
+            "label": "t:sections.seasonal_banner.blocks.text.settings.text.label"
+          },
+          {
+            "type": "select",
+            "id": "text_size",
+            "label": "t:sections.all.text_size.label",
+            "default": "md",
+            "options": [
+              {
+                "value": "sm",
+                "label": "t:sections.all.text_size.options.label_sm"
+              },
+              {
+                "value": "md",
+                "label": "t:sections.all.text_size.options.label_md"
+              },
+              {
+                "value": "lg",
+                "label": "t:sections.all.text_size.options.label_lg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "button",
+        "name": "t:sections.seasonal_banner.blocks.button.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_label",
+            "default": "Shop now",
+            "label": "t:sections.seasonal_banner.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "t:sections.seasonal_banner.blocks.button.settings.button_link.label"
+          },
+          {
+            "type": "checkbox",
+            "id": "button_type_link",
+            "label": "t:sections.seasonal_banner.blocks.button.settings.button_type_link.label",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "link_new_window",
+            "label": "t:sections.all.links.link_new_window.label",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_coupon_code",
+            "label": "t:sections.popup_overlay.blocks.button.settings.enable_coupon_code.label",
+            "info": "t:sections.popup_overlay.blocks.button.settings.enable_coupon_code.info",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "countdown",
+        "name": "t:sections.seasonal_banner.blocks.countdown.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "header",
+            "content": "t:sections.seasonal_banner.blocks.countdown.settings.header_scheduling.content"
+          },
+          {
+            "type": "text",
+            "id": "start_date",
+            "label": "t:sections.seasonal_banner.blocks.countdown.settings.start_date.label",
+            "info": "t:sections.seasonal_banner.blocks.countdown.settings.start_date.info"
+          },
+          {
+            "type": "text",
+            "id": "start_time",
+            "label": "t:sections.seasonal_banner.blocks.countdown.settings.start_time.label",
+            "info": "t:sections.seasonal_banner.blocks.countdown.settings.start_time.info",
+            "visible_if": "{{ block.settings.start_date != blank }}"
+          },
+          {
+            "type": "text",
+            "id": "end_date",
+            "label": "t:sections.seasonal_banner.blocks.countdown.settings.end_date.label",
+            "info": "t:sections.seasonal_banner.blocks.countdown.settings.end_date.info"
+          },
+          {
+            "type": "text",
+            "id": "end_time",
+            "label": "t:sections.seasonal_banner.blocks.countdown.settings.end_time.label",
+            "info": "t:sections.seasonal_banner.blocks.countdown.settings.end_time.info",
+            "visible_if": "{{ block.settings.end_date != blank }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_on_expiration",
+            "default": true,
+            "label": "t:sections.seasonal_banner.blocks.countdown.settings.hide_on_expiration.label",
+            "info": "t:sections.seasonal_banner.blocks.countdown.settings.hide_on_expiration.info"
+          },
+          {
+            "type": "richtext",
+            "id": "expiration_message",
+            "label": "t:sections.seasonal_banner.blocks.countdown.settings.expiration_message.label",
+            "info": "t:sections.seasonal_banner.blocks.countdown.settings.expiration_message.info",
+            "visible_if": "{{ block.settings.hide_on_expiration == false }}"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.seasonal_banner.presets.name",
+        "category": "t:sections.all.preset_category.banners",
+        "blocks": [
+          {
+            "type": "heading",
+            "settings": {
+              "heading": "Seasonal Sale",
+              "heading_size": "xl",
+              "mobile_heading_size": "lg"
+            }
+          },
+          {
+            "type": "text",
+            "settings": {
+              "text": "<p>Use code <strong>SEASON27</strong> for 24% off all products</p>"
+            }
+          },
+          {
+            "type": "button",
+            "settings": {
+              "button_label": "Shop now"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

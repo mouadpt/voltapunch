@@ -1,0 +1,119 @@
+{% comment %}
+  Renders a vertical tabs mega menu.
+
+  Accepts:
+  - menu: {Object} Menu (linklist) object
+  - label: {String} Button label text
+  - icon: {String} Icon name (menu, grid, or blank)
+  - color_scheme: {String} Submenu color scheme.
+  - button_background: {Color} Optional button background color
+  - button_text_color: {Color} Optional button text color
+
+  Usage:
+  {% render 'header-vertical-tabs-menu', menu: menu, label: 'Categories', icon: 'menu', color_scheme: 'background-1' %}
+{% endcomment %}
+
+{%- liquid
+  assign has_custom_background = false
+  assign button_styles = ''
+  if button_background != blank and button_background != 'rgba(0,0,0,0)'
+    assign has_custom_background = true
+    assign button_styles = button_styles | append: '--vertical-tabs-trigger-background: ' | append: button_background | append: ';'
+  endif
+  if button_text_color != blank and button_text_color != 'rgba(0,0,0,0)'
+    assign button_styles = button_styles | append: '--vertical-tabs-trigger-color: ' | append: button_text_color | append: ';'
+  endif
+-%}
+
+{% if menu != blank and menu.links.size > 0 %}
+  <vertical-tabs-menu class="vertical-tabs-menu{% if has_custom_background %} has-custom-background{% endif %}">
+    <button
+      class="vertical-tabs-menu-trigger"
+      aria-expanded="false"
+      aria-haspopup="true"
+      {% if button_styles != blank %}
+        style="{{ button_styles }}"
+      {% endif %}
+    >
+      {% if icon != blank %}
+        <span class="vertical-tabs-menu-trigger-icon">
+          {% render 'icons', icon: icon %}
+        </span>
+      {% endif %}
+      <span class="vertical-tabs-menu-trigger-label">{{ label }}</span>
+      <span class="vertical-tabs-menu-trigger-arrow">
+        {% render 'icons', icon: 'angle' %}
+      </span>
+    </button>
+
+    <div class="vertical-tabs-menu-dropdown color-{{ color_scheme }}">
+      <div class="container">
+        <div class="vertical-tabs-menu-container">
+          <div class="vertical-tabs-menu-tabs" role="tablist">
+            {%- for link in menu.links -%}
+              <button
+                class="vertical-tabs-menu-tab{% if forloop.first %} is-active{% endif %}"
+                role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-controls="vtab-panel-{{ forloop.index }}"
+                data-tab-index="{{ forloop.index }}"
+              >
+                <span class="vertical-tabs-menu-tab-label">{{ link.title | escape }}</span>
+                {% if link.links.size > 0 %}
+                  <span class="vertical-tabs-menu-tab-arrow">
+                    {% render 'icons', icon: 'angle' %}
+                  </span>
+                {% endif %}
+              </button>
+            {%- endfor -%}
+          </div>
+
+          <div class="vertical-tabs-menu-content">
+            {%- for link in menu.links -%}
+              <div
+                class="vertical-tabs-menu-panel{% if forloop.first %} is-active{% endif %}"
+                role="tabpanel"
+                id="vtab-panel-{{ forloop.index }}"
+                data-panel-index="{{ forloop.index }}"
+                {% unless forloop.first %}
+                  hidden
+                {% endunless %}
+              >
+                {% if link.links.size > 0 %}
+                  <div class="mega-menu-container mega-menu-columns vertical-tabs-menu-columns">
+                    {%- for childlink in link.links -%}
+                      <div class="vertical-tabs-menu-column">
+                        <a
+                          href="{{ childlink.url }}"
+                          class="mega-menu-column-title"
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+
+                        {%- if childlink.links.size > 0 -%}
+                          <ul class="mega-menu-column-list">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li class="navigation-item">
+                                <a href="{{ grandchildlink.url }}">
+                                  {{ grandchildlink.title | escape }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- endif -%}
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                {% else %}
+                  <div class="vertical-tabs-menu-empty">
+                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                  </div>
+                {% endif %}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </vertical-tabs-menu>
+{% endif %}

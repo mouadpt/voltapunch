@@ -1,0 +1,78 @@
+{%- assign text_direction = 'localization.text_direction' | t | downcase -%}
+<!doctype html>
+<html
+  lang="{{ request.locale.iso_code }}"
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  {% if text_direction == 'rtl' %}
+    dir="{{ text_direction }}"
+  {% endif %}
+>
+  <head>
+    {% render 'head-meta-tags' %}
+    {% render 'head-critical' %}
+    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {% render 'head-fonts' %}
+    {% render 'head-scripts' %}
+    {% render 'head-theme-variables' %}
+    {% render 'head-color-schemes' %}
+
+    {{ content_for_header }}
+
+    {% render 'head-design-mode' %}
+  </head>
+
+  {% liquid
+    assign body_class = 'template-' | append: template.name
+    assign body_class = body_class | append: ' setting-buttons-' | append: settings.buttons_style
+    assign body_class = body_class | append: ' setting-buttons-size-' | append: settings.buttons_size
+    assign body_class = body_class | append: ' settings-remove-ribbons-' | append: settings.remove_card_ribbon
+    assign body_class = body_class | append: ' setting-color-swatch-shape-' | append: settings.color_swatches_shape
+
+    if settings.product_cards_border_enabled == false
+      assign body_class = body_class | append: ' setting-card-product-unboxed'
+    endif
+  %}
+
+  <body class="{{ body_class }}">
+    <a class="skip-link visually-hidden visually-hidden-focusable" href="#MainContent">
+      {{- 'accessibility.link_messages.skip_to_text' | t -}}
+    </a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="main" role="main" tabindex="-1">
+      {% if settings.breadcrumbs_enabled %}
+        <div class="section-breadcrumbs-wrapper">
+          <div class="section-content section-breadcrumbs-setting">
+            {% render 'breadcrumb',
+              separator: '&raquo;',
+              show_product_collection: false,
+              show_preview_note: false
+            %}
+          </div>
+        </div>
+      {% endif %}
+
+      {{ content_for_layout }}
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      {% sections 'footer-group' %}
+      {% render 'header-mini-cart' %}
+    </footer>
+
+    {% sections 'overlays-group' %}
+
+    {% liquid
+      if settings.products_quickadd_no_variants == 'quickview' or settings.products_quickadd_variants == 'quickview'
+        render 'quick-view-drawer'
+      endif
+    %}
+
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+  </body>
+</html>

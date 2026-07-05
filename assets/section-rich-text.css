@@ -1,0 +1,58 @@
+/* Section - Rich text
+=================================== */
+.section-rich-text {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  .section-rich-text-content {
+    position: relative;
+    z-index: 1;
+
+    > * {
+      margin-top: var(--spacing-base-1);
+      margin-bottom: var(--spacing-base-1);
+    }
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    .rich-text-heading a {
+      color: rgba(var(--color-accent-1));
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: calc(var(--spacing-base-1) / 4);
+      margin-right: calc(var(--spacing-base-1) / 4);
+
+      &:only-of-type {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .section-background-image-wrap {
+    z-index: 0;
+  }
+}
+
+.rich-text-align-left {
+  text-align: start;
+}
+
+.rich-text-align-center {
+  text-align: center;
+}
+
+.rich-text-align-right {
+  text-align: end;
+}

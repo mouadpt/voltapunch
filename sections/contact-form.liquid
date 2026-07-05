@@ -1,0 +1,198 @@
+<style>
+  #shopify-section-{{ section.id }} .section-content {
+    margin-top: {{ section.settings.spacing_top_mobile }}px;
+    margin-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+  }
+
+  @media (min-width: 990px) {
+    #shopify-section-{{ section.id }} .section-content {
+      margin-top: {{ section.settings.spacing_top }}px;
+      margin-bottom: {{ section.settings.spacing_bottom }}px;
+    }
+  }
+</style>
+
+<div class="container container-narrow section-content">
+  <div class="contact-form section-{{ section.id }}">
+    {% if section.settings.title != blank %}
+      <h2 class="title">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="form-status form-status-success" tabindex="-1" autofocus>
+          {{ 'templates.contact.form.post_success' | t }}
+        </div>
+      {%- elsif form.errors -%}
+        <div class="form-status form-status-error" role="alert" tabindex="-1" autofocus>
+          <h5 class="form-status-title">{{ 'general.form.error_heading' | t }}</h5>
+          <ul class="form-status-list" role="list">
+            <li>
+              <a href="#ContactForm-email" class="link">
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      {%- endif -%}
+
+      <div class="contact-fields">
+        <div class="field">
+          <label class="field-label" for="ContactForm-name">
+            {{- 'templates.contact.form.name' | t -}}
+          </label>
+          <input
+            class="field-input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          >
+        </div>
+
+        <div class="field field-with-error">
+          <label class="field-label" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+            <span aria-hidden="true">*</span></label
+          >
+          <input
+            autocomplete="email"
+            type="email"
+            pattern=".+@.+\.(.+\.?)+"
+            id="ContactForm-email"
+            class="field-input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+          >
+          {%- if form.errors contains 'email' -%}
+            <small class="field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form-message">
+                {%- render 'icons', icon: 'cross' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="ContactForm-phone">
+          {{- 'templates.contact.form.phone' | t -}}
+        </label>
+        <input
+          type="tel"
+          id="ContactForm-phone"
+          class="field-input"
+          autocomplete="tel"
+          name="contact[phone]"
+          pattern="[0-9\-]*"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        >
+      </div>
+      <div class="field">
+        <label class="form-label field-label" for="ContactForm-body">
+          {{- 'templates.contact.form.comment' | t -}}
+        </label>
+        <textarea
+          rows="10"
+          id="ContactForm-body"
+          class="text-area field-input"
+          name="contact[comment]"
+        >
+          {{- form.body -}}
+        </textarea>
+      </div>
+
+      <div class="contact-button">
+        <button type="submit" class="button">
+          {{ 'templates.contact.form.send' | t }}
+          {% render 'angle', direction: 'right' %}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.contact_form.name",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "t:sections.contact_form.settings.title.label",
+        "default": "Contact form"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.section_spacing.heading"
+      },
+      {
+        "type": "select",
+        "id": "spacing_mode",
+        "label": "t:sections.all.section_spacing.spacing_mode.label",
+        "default": "desktop",
+        "options": [
+          {
+            "value": "desktop",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.desktop"
+          },
+          {
+            "value": "mobile",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.mobile"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "spacing_top",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_top_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      }
+    ]
+  }
+{% endschema %}

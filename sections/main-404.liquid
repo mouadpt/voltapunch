@@ -1,0 +1,97 @@
+<style>
+  #shopify-section-{{ section.id }} .section-content {
+    margin-top: {{ section.settings.spacing_top_mobile }}px;
+    margin-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+  }
+
+  @media (min-width: 990px) {
+    #shopify-section-{{ section.id }} .section-content {
+      margin-top: {{ section.settings.spacing_top }}px;
+      margin-bottom: {{ section.settings.spacing_bottom }}px;
+    }
+  }
+</style>
+
+<div class="container container-narrow">
+  <div class="section-content text-center">
+    <p class="eyebrow">
+      {{ 'templates.404.eybrow' | t }}
+    </p>
+    <h1 class="page-title">
+      {{ 'templates.404.heading' | t }}
+    </h1>
+    <a href="{{ routes.all_products_collection_url }}" class="button">
+      {{ 'templates.404.shop_link' | t }}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.main_404.name",
+    "tag": "section",
+    "class": "section section-main-404",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.all.section_spacing.heading"
+      },
+      {
+        "type": "select",
+        "id": "spacing_mode",
+        "label": "t:sections.all.section_spacing.spacing_mode.label",
+        "default": "desktop",
+        "options": [
+          {
+            "value": "desktop",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.desktop"
+          },
+          {
+            "value": "mobile",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.mobile"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "spacing_top",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_top_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      }
+    ]
+  }
+{% endschema %}

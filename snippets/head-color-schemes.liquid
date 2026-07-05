@@ -1,0 +1,59 @@
+{% comment %}
+  Color scheme CSS variables
+
+  Usage:
+  {% render 'head-color-schemes' %}
+{% endcomment %}
+{% style %}
+  {% for scheme in settings.color_schemes %}
+    {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+
+    {% if forloop.index == 1 -%}
+    :root,
+    {%- endif %}
+    .color-{{ scheme.id }} {
+      --color-background: {{ scheme.settings.background.red }} {{ scheme.settings.background.green }} {{ scheme.settings.background.blue }} / {{ scheme.settings.background.alpha }};
+      --color-foreground: {{ scheme.settings.text.red }} {{ scheme.settings.text.green }} {{ scheme.settings.text.blue }} / {{ scheme.settings.text.alpha }};
+      --color-foreground-alt: {{ scheme.settings.headings_text.red }} {{ scheme.settings.headings_text.green }} {{ scheme.settings.headings_text.blue }} / {{ scheme.settings.headings_text.alpha }};
+      --color-border: {{ scheme.settings.border.red }} {{ scheme.settings.border.green }} {{ scheme.settings.border.blue }} / {{ scheme.settings.border.alpha }};
+      --color-box-shadow: {{ scheme.settings.border.red }} {{ scheme.settings.border.green }} {{ scheme.settings.border.blue }} / 0.2;
+      --color-accent-1: {{ scheme.settings.accent_1.red }} {{ scheme.settings.accent_1.green }} {{ scheme.settings.accent_1.blue }} / {{ scheme.settings.accent_1.alpha }};
+      --color-accent-2: {{ scheme.settings.accent_2.red }} {{ scheme.settings.accent_2.green }} {{ scheme.settings.accent_2.blue }} / {{ scheme.settings.accent_2.alpha }};
+      --color-button: {{ scheme.settings.primary_button_background.red }} {{ scheme.settings.primary_button_background.green }} {{ scheme.settings.primary_button_background.blue }} / {{ scheme.settings.primary_button_background.alpha }};
+      --color-button-text: {{ scheme.settings.primary_button_text.red }} {{ scheme.settings.primary_button_text.green }} {{ scheme.settings.primary_button_text.blue }} / {{ scheme.settings.primary_button_text.alpha }};
+      --color-secondary-button: {{ scheme.settings.secondary_button_background.red }} {{ scheme.settings.secondary_button_background.green }} {{ scheme.settings.secondary_button_background.blue }} / {{ scheme.settings.secondary_button_background.alpha }};
+      --color-secondary-button-text: {{ scheme.settings.secondary_button_text.red }} {{ scheme.settings.secondary_button_text.green }} {{ scheme.settings.secondary_button_text.blue }} / {{ scheme.settings.secondary_button_text.alpha }};
+
+      --color-product-cards-background: {{ scheme.settings.colors_product_cards_background.red }} {{ scheme.settings.colors_product_cards_background.green }} {{ scheme.settings.colors_product_cards_background.blue }} / {{ scheme.settings.colors_product_cards_background.alpha }};
+      --color-product-cards-foreground: {{ scheme.settings.colors_product_cards_text.red }} {{ scheme.settings.colors_product_cards_text.green }} {{ scheme.settings.colors_product_cards_text.blue }} / {{ scheme.settings.colors_product_cards_text.alpha }};
+      --color-product-cards-foreground-alt: {{ scheme.settings.colors_product_cards_headings_text.red }} {{ scheme.settings.colors_product_cards_headings_text.green }} {{ scheme.settings.colors_product_cards_headings_text.blue }} / {{ scheme.settings.colors_product_cards_headings_text.alpha }};
+      --color-product-cards-border: {{ scheme.settings.colors_product_cards_border.red }} {{ scheme.settings.colors_product_cards_border.green }} {{ scheme.settings.colors_product_cards_border.blue }} / {{ scheme.settings.colors_product_cards_border.alpha }};
+      --color-product-cards-box-shadow: {{ scheme.settings.colors_product_cards_border.red }} {{ scheme.settings.colors_product_cards_border.green }} {{ scheme.settings.colors_product_cards_border.blue }} / 0.2;
+      --color-product-cards-price: {{ scheme.settings.colors_product_cards_price.red }} {{ scheme.settings.colors_product_cards_price.green }} {{ scheme.settings.colors_product_cards_price.blue }} / {{ scheme.settings.colors_product_cards_price.alpha }};
+      --color-product-cards-price-discount: {{ scheme.settings.colors_product_cards_price_discount.red }} {{ scheme.settings.colors_product_cards_price_discount.green }} {{ scheme.settings.colors_product_cards_price_discount.blue }} / {{ scheme.settings.colors_product_cards_price_discount.alpha }};
+      --color-product-cards-price-discount-final: {{ scheme.settings.colors_product_cards_price_final_discount.red }} {{ scheme.settings.colors_product_cards_price_final_discount.green }} {{ scheme.settings.colors_product_cards_price_final_discount.blue }} / {{ scheme.settings.colors_product_cards_price_final_discount.alpha }};
+
+      --color-inputs-background: {{ scheme.settings.colors_forms_background.red }} {{ scheme.settings.colors_forms_background.green }} {{ scheme.settings.colors_forms_background.blue }} / {{ scheme.settings.colors_forms_background.alpha }};
+      --color-inputs-foreground: {{ scheme.settings.colors_forms_text.red }} {{ scheme.settings.colors_forms_text.green }} {{ scheme.settings.colors_forms_text.blue }} / {{ scheme.settings.colors_forms_text.alpha }};
+      --color-inputs-border: {{ scheme.settings.colors_forms_border.red }} {{ scheme.settings.colors_forms_border.green }} {{ scheme.settings.colors_forms_border.blue }} / {{ scheme.settings.colors_forms_border.alpha }};
+      --color-inputs-box-shadow: {{ scheme.settings.colors_forms_border.red }} {{ scheme.settings.colors_forms_border.green }} {{ scheme.settings.colors_forms_border.blue }} / 0.2;
+
+      --color-aux-background: {{ scheme.settings.colors_aux_background.red }} {{ scheme.settings.colors_aux_background.green }} {{ scheme.settings.colors_aux_background.blue }} / {{ scheme.settings.colors_aux_background.alpha }};
+      --color-aux-foreground: {{ scheme.settings.colors_aux_text.red }} {{ scheme.settings.colors_aux_text.green }} {{ scheme.settings.colors_aux_text.blue }} / {{ scheme.settings.colors_aux_text.alpha }};
+      --color-aux-border: {{ scheme.settings.colors_aux_border.red }} {{ scheme.settings.colors_aux_border.green }} {{ scheme.settings.colors_aux_border.blue }} / {{ scheme.settings.colors_aux_border.alpha }};
+      --color-aux-box-shadow: {{ scheme.settings.colors_aux_border.red }} {{ scheme.settings.colors_aux_border.green }} {{ scheme.settings.colors_aux_border.blue }} / 0.2;
+    }
+
+    .color-button-{{ scheme.id }} {
+      --color-button: {{ scheme.settings.primary_button_background.red }} {{ scheme.settings.primary_button_background.green }} {{ scheme.settings.primary_button_background.blue }} / {{ scheme.settings.primary_button_background.alpha }};
+      --color-button-text: {{ scheme.settings.primary_button_text.red }} {{ scheme.settings.primary_button_text.green }} {{ scheme.settings.primary_button_text.blue }} / {{ scheme.settings.primary_button_text.alpha }};
+      --color-secondary-button: {{ scheme.settings.secondary_button_background.red }} {{ scheme.settings.secondary_button_background.green }} {{ scheme.settings.secondary_button_background.blue }} / {{ scheme.settings.secondary_button_background.alpha }};
+      --color-secondary-button-text: {{ scheme.settings.secondary_button_text.red }} {{ scheme.settings.secondary_button_text.green }} {{ scheme.settings.secondary_button_text.blue }} / {{ scheme.settings.secondary_button_text.alpha }};
+    }
+  {% endfor %}
+
+  {{ scheme_classes | prepend: 'body' }} {
+    color: rgba(var(--color-foreground));
+    background-color: rgba(var(--color-background));
+  }
+{% endstyle %}

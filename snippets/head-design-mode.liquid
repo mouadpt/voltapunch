@@ -1,0 +1,29 @@
+{% comment %}
+  Design mode CSS and JS assets - only loaded in theme customizer
+
+  Usage:
+  {% render 'head-design-mode' %}
+{% endcomment %}
+{% if request.design_mode %}
+  {{ 'section-slideshow.css' | asset_url | stylesheet_tag }}
+  {{ 'flickity.css' | asset_url | stylesheet_tag }}
+  {{ 'component-scroller.css' | asset_url | stylesheet_tag }}
+  {{ 'theme-editor.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'flickity.pkgd.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'carousel-slider.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'map.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'recipient-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'countdown.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'video-background.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'image-hotspots.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'text-slider.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-request-information.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'popup-overlay.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'section-age-verification.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'scrolling-elements.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'before-after-slider.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{% endif %}

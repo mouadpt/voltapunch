@@ -1,0 +1,63 @@
+{% if block.settings.button_label != blank %}
+  <div class="flexi-block flexi-button" {{ block.shopify_attributes }}>
+    <a
+      {% if block.settings.button_link != blank %}
+        href="{{ block.settings.button_link }}"
+        {% if block.settings.link_new_window %}target="_blank"{% endif %}
+      {% else %}
+        role="link" aria-disabled="true"
+      {% endif %}
+      class="{% if block.settings.button_style == 'link' %}button-text-link{% else %}button{% endif %}"
+    >
+      {{ block.settings.button_label | escape }}
+    </a>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "t:theme_blocks._flexi_button.name",
+    "tag": null,
+    "class": "flexi-block flexi-button",
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "t:theme_blocks._flexi_button.settings.button_label.label",
+        "default": "Button"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:theme_blocks._flexi_button.settings.button_link.label"
+      },
+      {
+        "type": "select",
+        "id": "button_style",
+        "label": "t:theme_blocks._flexi_button.settings.button_style.label",
+        "default": "button",
+        "options": [
+          {
+            "value": "button",
+            "label": "t:theme_blocks._flexi_button.settings.button_style.options.button"
+          },
+          {
+            "value": "link",
+            "label": "t:theme_blocks._flexi_button.settings.button_style.options.link"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "link_new_window",
+        "label": "t:sections.all.links.link_new_window.label",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:theme_blocks._flexi_button.name"
+      }
+    ]
+  }
+{% endschema %}

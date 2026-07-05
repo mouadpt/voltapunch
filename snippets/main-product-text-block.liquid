@@ -1,0 +1,67 @@
+{% assign color_scheme_string = block.settings.color_scheme | append: '' %}
+<div class="product-info-secondary {% if color_scheme_string != 'background-1' %} card color-{{ block.settings.color_scheme }}{% endif %}">
+  {% if block.settings.text != blank %}
+    <div class="product-info-secondary-line">
+      {% if block.settings.icon == 'custom' and block.settings.custom_icon != blank %}
+        <img
+          src="{{ block.settings.custom_icon | image_url: width: 48 }}"
+          width="24"
+          height="24"
+        >
+      {% elsif block.settings.icon != blank %}
+        {% render 'icons', icon: block.settings.icon %}
+      {% endif %}
+      <span class="rte">
+        {{ block.settings.text }}
+      </span>
+    </div>
+  {% endif %}
+  {% if block.settings.text_2 != blank %}
+    <div class="product-info-secondary-line">
+      {% if block.settings.icon_2 == 'custom' and block.settings.custom_icon_2 != blank %}
+        <img
+          src="{{ block.settings.custom_icon_2 | image_url: width: 48 }}"
+          width="24"
+          height="24"
+        >
+      {% elsif block.settings.icon_2 != blank %}
+        {% render 'icons', icon: block.settings.icon_2 %}
+      {% endif %}
+      <span class="rte">
+        {{ block.settings.text_2 }}
+      </span>
+    </div>
+  {% endif %}
+  {% if block.settings.text_3 != blank %}
+    <div class="product-info-secondary-line">
+      {% if block.settings.icon_3 == 'custom' and block.settings.custom_icon_3 != blank %}
+        <img
+          src="{{ block.settings.custom_icon_3 | image_url: width: 48 }}"
+          width="24"
+          height="24"
+        >
+      {% elsif block.settings.icon_3 != blank %}
+        {% render 'icons', icon: block.settings.icon_3 %}
+      {% endif %}
+      <span class="rte">
+        {{ block.settings.text_3 }}
+      </span>
+    </div>
+  {% endif %}
+  {% if block.settings.text_4 != blank %}
+    <div class="product-info-secondary-line">
+      {% if block.settings.icon_4 == 'custom' and block.settings.custom_icon_4 != blank %}
+        <img
+          src="{{ block.settings.custom_icon_4 | image_url: width: 48 }}"
+          width="24"
+          height="24"
+        >
+      {% elsif block.settings.icon_4 != blank %}
+        {% render 'icons', icon: block.settings.icon_4 %}
+      {% endif %}
+      <span class="rte">
+        {{ block.settings.text_4 }}
+      </span>
+    </div>
+  {% endif %}
+</div>

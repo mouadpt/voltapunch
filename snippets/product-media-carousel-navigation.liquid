@@ -1,0 +1,34 @@
+{% doc %}
+  Renders the carousel navigation for the product media gallery
+
+  @param {object} section - Section object.
+  @param {object} product - Product object.
+
+  @example
+  {% render 'product-media-carousel-navigation',
+    section: section,
+    product: product
+  %}
+{% enddoc %}
+
+{% if section.settings.arrow_navigation and product.media.size > 1 %}
+  <carousel-navigation
+    for="MediaGallery-{{ section.id }}"
+    data-wrap="true"
+  >
+    <div class="pill-nav pill-nav-slider pill-nav-slider-inline-nav">
+      <button class="pill-nav-item pill-nav-item-prev js-prev">
+        <span class="visually-hidden">
+          {{- 'products.product.media.previous_image' | t -}}
+        </span>
+        {% render 'angle', direction: 'left' %}
+      </button>
+      <button class="pill-nav-item pill-nav-item-next js-next">
+        <span class="visually-hidden">
+          {{- 'products.product.media.next_image' | t -}}
+        </span>
+        {% render 'angle', direction: 'right' %}
+      </button>
+    </div>
+  </carousel-navigation>
+{% endif %}

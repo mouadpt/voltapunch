@@ -1,0 +1,261 @@
+/* Section - Seasonal banner
+=================================== */
+.seasonal-banner-wrap {
+  position: relative;
+  border-radius: var(--border-radius-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+
+  @media (min-width: 750px) {
+    padding: 4rem 2rem;
+    aspect-ratio: auto;
+  }
+
+  .section-fullwidth & {
+    border-radius: 0;
+    padding: 3.5rem 1.5rem;
+
+    @media (min-width: 1200px) {
+      padding: 6rem 2rem;
+    }
+  }
+
+  &.seasonal-banner-wrap-small {
+    @media (min-width: 750px) {
+      min-height: 400px;
+    }
+  }
+
+  &.seasonal-banner-wrap-medium {
+    @media (min-width: 750px) {
+      min-height: 500px;
+    }
+  }
+
+  &.seasonal-banner-wrap-large {
+    @media (min-width: 750px) {
+      min-height: 600px;
+    }
+  }
+}
+
+/* Background image */
+.seasonal-banner-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-base);
+  z-index: 0;
+
+  .section-fullwidth & {
+    border-radius: 0;
+  }
+}
+
+/* Repeating background */
+.seasonal-banner-backdrop-repeat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius-base);
+  z-index: 0;
+
+  .section-fullwidth & {
+    border-radius: 0;
+  }
+}
+
+.seasonal-banner-animate-mobile {
+  width: 200%;
+  height: 200%;
+  animation: seasonal-banner-scroll 20s linear infinite;
+
+  @media (min-width: 750px) {
+    width: 100%;
+    height: 100%;
+    animation: none;
+  }
+}
+
+.seasonal-banner-animate-desktop {
+  @media (min-width: 750px) {
+    width: 200%;
+    height: 200%;
+    animation: seasonal-banner-scroll 20s linear infinite;
+  }
+}
+
+@keyframes seasonal-banner-scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Content wrap */
+.seasonal-banner-content-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Content box */
+.seasonal-banner-content-box {
+  width: 100%;
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius-base);
+  text-align: center;
+
+  @media (min-width: 750px) {
+    padding: 3rem 2.5rem;
+  }
+
+  @media (min-width: 990px) {
+    padding: 4rem 3rem;
+  }
+}
+
+/* Content elements */
+.seasonal-banner-content {
+  & > * {
+    margin-bottom: 1rem;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Heading */
+.seasonal-banner-heading {
+  margin-bottom: 1rem;
+
+  & a {
+    color: currentColor;
+  }
+
+  &.seasonal-banner-heading-sm {
+    font-size: calc(var(--font-heading-scale) * 2rem);
+  }
+
+  &.seasonal-banner-heading-md {
+    font-size: calc(var(--font-heading-scale) * 2.4rem);
+  }
+
+  &.seasonal-banner-heading-lg {
+    font-size: calc(var(--font-heading-scale) * 3rem);
+  }
+
+  &.seasonal-banner-heading-xl {
+    font-size: calc(var(--font-heading-scale) * 3.6rem);
+  }
+
+  &.seasonal-banner-heading-xxl {
+    font-size: calc(var(--font-heading-scale) * 4.2rem);
+  }
+
+  &.seasonal-banner-heading-desktop-sm {
+    @media (min-width: 750px) {
+      font-size: calc(var(--font-heading-scale) * 2.4rem);
+    }
+  }
+
+  &.seasonal-banner-heading-desktop-md {
+    @media (min-width: 750px) {
+      font-size: calc(var(--font-heading-scale) * 3rem);
+    }
+  }
+
+  &.seasonal-banner-heading-desktop-lg {
+    @media (min-width: 750px) {
+      font-size: calc(var(--font-heading-scale) * 4rem);
+    }
+  }
+
+  &.seasonal-banner-heading-desktop-xl {
+    @media (min-width: 750px) {
+      font-size: calc(var(--font-heading-scale) * 5rem);
+    }
+  }
+
+  &.seasonal-banner-heading-desktop-xxl {
+    @media (min-width: 750px) {
+      font-size: calc(var(--font-heading-scale) * 6rem);
+    }
+  }
+}
+
+/* Text block */
+.seasonal-banner-text {
+  margin-bottom: 1.5rem;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  & a {
+    color: currentColor;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 0.1rem;
+  }
+
+  & a:hover {
+    text-decoration-thickness: 0.2rem;
+  }
+}
+
+/* Buttons */
+.seasonal-banner-buttons {
+  display: inline-flex;
+  grid-gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+
+  @media (min-width: 990px) {
+    margin-top: 1rem;
+  }
+
+  & .button-text-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  & .button-text-link svg {
+    flex-shrink: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-inline-start: 0.5rem;
+  }
+}
+
+/* Countdown */
+.seasonal-banner-countdown {
+  margin: 1rem 0;
+
+  & .countdown-timer-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  & .countdown-timer-expiration-message {
+    background: transparent;
+    color: inherit;
+  }
+}

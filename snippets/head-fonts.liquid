@@ -1,0 +1,34 @@
+{% comment %}
+  Font preloads for body and heading fonts
+
+  Usage:
+  {% render 'head-fonts' %}
+{% endcomment %}
+{% unless settings.typography_headings.system? and settings.typography_body.system? %}
+  {% # theme-check-disable RemoteAsset %}
+  <link rel="preconnect" href="//fonts.shopifycdn.com" crossorigin>
+  {% # theme-check-enable RemoteAsset %}
+{% endunless %}
+
+{% comment %}theme-check-disable AssetPreload{% endcomment %}
+{% unless settings.typography_body.system? %}
+  <link
+    rel="preload"
+    as="font"
+    href="{{ settings.typography_body | font_url }}"
+    type="font/woff2"
+    crossorigin
+    fetchpriority="low"
+  >
+{% endunless %}
+{% unless settings.typography_headings.system? %}
+  <link
+    rel="preload"
+    as="font"
+    href="{{ settings.typography_headings | font_url }}"
+    type="font/woff2"
+    crossorigin
+    fetchpriority="low"
+  >
+{% endunless %}
+{% comment %}theme-check-enable AssetPreload{% endcomment %}

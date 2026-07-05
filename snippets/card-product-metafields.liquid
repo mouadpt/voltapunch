@@ -1,0 +1,45 @@
+{% comment %}
+  Renders a product's metafields for listing pages
+
+  Accepts:
+  - product: {Object} Product object
+
+  Usage:
+  {% render 'card-product-metafields', product: product %}
+{% endcomment %}
+
+{% liquid
+  assign card_product_metafields = settings.card_product_metafields | newline_to_br | strip_newlines | split: '<br />'
+  assign titles = ''
+  assign metafields = ''
+  for line in card_product_metafields
+    assign title_metafield = line | split: ':'
+    assign title = title_metafield[0] | strip
+    assign metafield = title_metafield[1] | strip
+    assign titles = titles | append: '|' | append: title
+    assign metafields = metafields | append: '|' | append: metafield
+  endfor
+  assign titles = titles | replace_first: '|', '' | split: '|' | compact
+  assign metafields = metafields | replace_first: '|', '' | split: '|' | compact
+%}
+
+{% capture output %}
+	{% for metafield in metafields %}
+		{% liquid
+			assign title = titles[forloop.index0] | strip
+			assign fields = metafield | strip | split: "."
+			assign field_ns = fields[-2]
+			assign field_key = fields[-1]
+		%}
+		{% capture text %}{{ product.metafields[field_ns][field_key] | metafield_text }}{% endcapture %}
+		{% if text != blank %}
+			<span>{{ title }}: <strong>{{ text }}</strong></span>
+		{% endif %}
+	{% endfor %}
+{% endcapture %}
+
+{% if output != blank %}
+  <div class="card-info-product-meta">
+    {{ output }}
+  </div>
+{% endif %}

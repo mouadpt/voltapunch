@@ -1,0 +1,400 @@
+{{ 'section-key-figures.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'key-figures.js' | asset_url }}" defer="defer"></script>
+
+{% liquid
+  assign color_scheme_string = section.settings.color_scheme | append: ''
+  assign section_content_class = 'section-content'
+  unless color_scheme_string == 'background-1'
+    assign section_content_class = section_content_class | append: ' section-content-padded'
+  endunless
+
+  assign grid_classes = 'key-figures-grid columns-' | append: section.settings.columns
+
+  assign use_accent_color = false
+  if color_scheme_string == 'background-1' or color_scheme_string == 'background-2'
+    assign use_accent_color = true
+  endif
+%}
+
+<style>
+  #shopify-section-{{ section.id }} .section-content {
+    margin-top: {{ section.settings.spacing_top_mobile }}px;
+    margin-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+  }
+
+  #shopify-section-{{ section.id }} .section-content-padded {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: {{ section.settings.spacing_top_mobile }}px;
+    padding-bottom: {{ section.settings.spacing_bottom_mobile }}px;
+  }
+
+  @media (min-width: 990px) {
+    #shopify-section-{{ section.id }} .section-content {
+      margin-top: {{ section.settings.spacing_top }}px;
+      margin-bottom: {{ section.settings.spacing_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .section-content-padded {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: {{ section.settings.spacing_top }}px;
+      padding-bottom: {{ section.settings.spacing_bottom }}px;
+    }
+  }
+</style>
+
+{%- capture visibility_classes -%}{%- render 'section-visibility-classes' -%}{%- endcapture -%}
+{%- assign visibility_classes = visibility_classes | strip -%}
+
+<div class="{{ visibility_classes }}">
+  <div class="color-{{ section.settings.color_scheme }}">
+    <div class="container">
+      <div class="{{ section_content_class }}">
+        {% if section.settings.heading != blank or section.settings.subheading != blank %}
+          <div class="section-headings {% if section.settings.subheading != blank %}with-subheading{% endif %}">
+            <div class="section-headings-content{% if section.settings.headings_alignment == 'center' %} center-aligned{% endif %}">
+              {% if section.settings.heading != blank %}
+                <{{ section.settings.heading_tag }} class="section-heading heading-size-{{ section.settings.heading_size }}">
+                  {{- section.settings.heading -}}
+                </{{ section.settings.heading_tag }}>
+              {% endif %}
+              {% if section.settings.subheading != blank %}
+                <p class="section-subheading">{{ section.settings.subheading }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        <key-figures
+          data-animate-on-scroll="{{ section.settings.animate_on_scroll }}"
+          data-duration="{{ section.settings.animation_duration | times: 1000 }}"
+        >
+          <div class="{{ grid_classes }}">
+            {% for block in section.blocks %}
+              <div class="key-figures-item" {{ block.shopify_attributes }}>
+                <div class="key-figures-number size-{{ block.settings.figure_size }}{% if use_accent_color %} accent-color{% endif %}">
+                  {% if block.settings.prefix != blank %}
+                    <span class="key-figures-prefix">{{ block.settings.prefix }}</span>
+                  {% endif %}
+                  <span class="key-figures-value" data-value="{{ block.settings.number }}">0</span>
+                  {% if block.settings.suffix != blank %}
+                    <span class="key-figures-suffix">{{ block.settings.suffix }}</span>
+                  {% endif %}
+                </div>
+                {% if block.settings.description != blank %}
+                  <p class="key-figures-description">{{ block.settings.description }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </key-figures>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.key_figures.name",
+    "tag": "section",
+    "class": "section-key-figures",
+    "disabled_on": {
+      "groups": ["header", "footer", "custom.overlays"]
+    },
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "t:sections.key_figures.settings.heading.label",
+        "default": "By The Numbers"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "label": "t:sections.all.heading_size.label",
+        "default": "md",
+        "options": [
+          {
+            "value": "sm",
+            "label": "t:sections.all.heading_size.options.label_sm"
+          },
+          {
+            "value": "md",
+            "label": "t:sections.all.heading_size.options.label_md"
+          },
+          {
+            "value": "lg",
+            "label": "t:sections.all.heading_size.options.label_lg"
+          },
+          {
+            "value": "xl",
+            "label": "t:sections.all.heading_size.options.label_xl"
+          },
+          {
+            "value": "xxl",
+            "label": "t:sections.all.heading_size.options.label_xxl"
+          }
+        ]
+      },
+      {
+        "type": "inline_richtext",
+        "id": "subheading",
+        "label": "t:sections.key_figures.settings.subheading.label"
+      },
+      {
+        "type": "select",
+        "id": "headings_alignment",
+        "label": "t:sections.all.headings_alignment.label",
+        "default": "center",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.all.headings_alignment.options.label_left"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.all.headings_alignment.options.label_center"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "t:sections.key_figures.settings.header_animation.content"
+      },
+      {
+        "type": "range",
+        "id": "animation_duration",
+        "label": "t:sections.key_figures.settings.animation_duration.label",
+        "unit": "s",
+        "min": 1,
+        "max": 5,
+        "step": 0.5,
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "animate_on_scroll",
+        "label": "t:sections.key_figures.settings.animate_on_scroll.label",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.layout.heading"
+      },
+      {
+        "type": "range",
+        "id": "columns",
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "default": 3,
+        "label": "t:sections.all.layout.desktop_columns.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.colors.heading"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.color_scheme.label",
+        "default": "background-1"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.section_spacing.heading"
+      },
+      {
+        "type": "select",
+        "id": "spacing_mode",
+        "label": "t:sections.all.section_spacing.spacing_mode.label",
+        "default": "desktop",
+        "options": [
+          {
+            "value": "desktop",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.desktop"
+          },
+          {
+            "value": "mobile",
+            "label": "t:sections.all.section_spacing.spacing_mode.options.mobile"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "spacing_top",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 60,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'desktop' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_top_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_top.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "range",
+        "id": "spacing_bottom_mobile",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 48,
+        "label": "t:sections.all.section_spacing.spacing_bottom.label",
+        "visible_if": "{{ section.settings.spacing_mode == 'mobile' }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.advanced.seo_heading.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_tag",
+        "label": "t:sections.all.advanced.heading_tag.label",
+        "default": "h2",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.advanced.visibility_heading.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_desktop",
+        "default": true,
+        "label": "t:sections.all.advanced.show_on_desktop.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_mobile",
+        "default": true,
+        "label": "t:sections.all.advanced.show_on_mobile.label"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "figure",
+        "name": "t:sections.key_figures.blocks.figure.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "prefix",
+            "label": "t:sections.key_figures.blocks.figure.settings.prefix.label",
+            "info": "t:sections.key_figures.blocks.figure.settings.prefix.info"
+          },
+          {
+            "type": "text",
+            "id": "number",
+            "label": "t:sections.key_figures.blocks.figure.settings.number.label",
+            "default": "100"
+          },
+          {
+            "type": "text",
+            "id": "suffix",
+            "label": "t:sections.key_figures.blocks.figure.settings.suffix.label",
+            "info": "t:sections.key_figures.blocks.figure.settings.suffix.info"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "t:sections.key_figures.blocks.figure.settings.description.label",
+            "default": "Description"
+          },
+          {
+            "type": "select",
+            "id": "figure_size",
+            "label": "t:sections.key_figures.blocks.figure.settings.figure_size.label",
+            "default": "xl",
+            "options": [
+              {
+                "value": "sm",
+                "label": "t:sections.all.heading_size.options.label_sm"
+              },
+              {
+                "value": "md",
+                "label": "t:sections.all.heading_size.options.label_md"
+              },
+              {
+                "value": "lg",
+                "label": "t:sections.all.heading_size.options.label_lg"
+              },
+              {
+                "value": "xl",
+                "label": "t:sections.all.heading_size.options.label_xl"
+              },
+              {
+                "value": "xxl",
+                "label": "t:sections.all.heading_size.options.label_xxl"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.key_figures.presets.name",
+        "category": "t:sections.all.preset_category.content",
+        "blocks": [
+          {
+            "type": "figure",
+            "settings": {
+              "prefix": "~",
+              "number": "300",
+              "suffix": "K",
+              "description": "Associates in the United States"
+            }
+          },
+          {
+            "type": "figure",
+            "settings": {
+              "number": "16",
+              "suffix": "M+",
+              "description": "Customer transactions per week"
+            }
+          },
+          {
+            "type": "figure",
+            "settings": {
+              "prefix": "$",
+              "number": "83.7",
+              "suffix": "B",
+              "description": "Sales in 2027"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

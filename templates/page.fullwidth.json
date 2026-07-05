@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main-page-fullwidth": {
+      "type": "main-page-fullwidth",
+      "settings": {
+        "hide_heading": false,
+        "spacing_mode": "desktop",
+        "spacing_top": 60,
+        "spacing_bottom": 60,
+        "spacing_top_mobile": 48,
+        "spacing_bottom_mobile": 48
+      }
+    }
+  },
+  "order": [
+    "main-page-fullwidth"
+  ]
+}

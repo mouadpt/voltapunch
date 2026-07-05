@@ -1,0 +1,27 @@
+{% assign block_classes = 'flexi-features-column flexi-features-column-' | append: block.id %}
+<div class="{{ block_classes }}">
+  <div class="flexi-column-content" {{ block.shopify_attributes }}>
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:theme_blocks._flexi_features_column.name",
+    "tag": null,
+    "settings": [],
+    "blocks": [
+      { "type": "_flexi-feature-group" },
+      { "type": "_flexi-heading" },
+      { "type": "_flexi-text" },
+      { "type": "_flexi-richtext" },
+      { "type": "_flexi-media" },
+      { "type": "_flexi-button" }
+    ],
+    "presets": [
+      {
+        "name": "t:theme_blocks._flexi_features_column.name"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,127 @@
+{% doc %}
+  Renders a product media gallery
+  @param {object} section - Section object.
+  @param {object} product - Product object.
+  @param {object} variant_images - Array of variant images.
+  @example
+  {% render 'product-media-gallery', product: product, section: section,
+  variant_images:variant_images %}
+{% enddoc %}
+
+<div class="product-media-gallery-wrap">
+  <a
+    class="skip-link visually-hidden visually-hidden-focusable"
+    href="#Product-{{ section.id }}"
+  >
+    {{- 'accessibility.link_messages.skip_to_product_info' | t -}}
+  </a>
+  <media-gallery
+    id="MediaGallery-{{ section.id }}"
+    role="region"
+    class="product-media-gallery"
+    aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
+    hide-variants="{{ section.settings.hide_variants }}"
+  >
+    <div class="product-media-wrapper product-media-wrapper--{{ section.settings.thumbnails_position }}">
+      {% if product.media %}
+        {%- liquid
+          assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media | default: settings.product_placeholder_image
+          assign ratio = 0
+          if section.settings.image_ratio == 'square'
+            assign ratio = 1
+          elsif section.settings.image_ratio == 'portrait'
+            assign ratio = 0.75
+          elsif section.settings.image_ratio == 'landscape'
+            assign ratio = 1.777
+          endif
+        -%}
+
+        <div class="product-media-main-wrapper">
+          {%- assign media_position = 1 -%}
+          <div
+            class="product-media-main product-media is-active"
+            data-media-id="{{ featured_media.id }}"
+          >
+            {% render 'product-gallery-media',
+              media: featured_media,
+              position: media_position,
+              media_width: 800,
+              lazyload: false,
+              fetchpriority: 'high',
+              modal_id: section.id,
+              image_zoom_type: section.settings.image_zoom_type,
+              custom_ratio: ratio
+            %}
+          </div>
+
+          {%- for media in product.media -%}
+            {%- if media.id != featured_media.id -%}
+              {%- liquid
+                assign media_position = media_position | default: 1 | plus: 1
+                if section.settings.hide_variants and variant_images contains media.src
+                  continue
+                endif
+              -%}
+
+              <div
+                class="product-media-main product-media"
+                data-media-id="{{ media.id }}"
+                data-forloop-id="{{ forloop.index }}"
+              >
+                {% render 'product-gallery-media',
+                  media: media,
+                  position: media_position,
+                  media_width: 800,
+                  lazyload: true,
+                  fetchpriority: 'auto',
+                  modal_id: section.id,
+                  image_zoom_type: section.settings.image_zoom_type,
+                  custom_ratio: ratio
+                %}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+
+          {% render 'product-media-carousel-navigation', section: section, product: product %}
+        </div>
+
+        {% render 'product-media-thumbnails',
+          product: product,
+          section: section,
+          variant_images: variant_images,
+          featured_media: featured_media
+        %}
+      {% else %}
+        {%- comment -%} Placeholder for when product is blank (onboarding state) {%- endcomment -%}
+        <div class="product-media-main-wrapper">
+          <div class="product-media-main product-media is-active">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        </div>
+        <div class="product-media-scroll-wrap">
+          <div class="product-media-scroller">
+            <div class="product-media-thumbnails">
+              <div class="product-media-thumbnail product-media is-active">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </media-gallery>
+
+  {% render 'product-media-modal',
+    section: section,
+    product: product,
+    variant_images: variant_images
+  %}
+
+  {% if section.settings.image_disclaimer != blank %}
+    <div class="product-media-gallery-message">
+      <div class="rte">
+        {{ section.settings.image_disclaimer }}
+      </div>
+    </div>
+  {% endif %}
+</div>

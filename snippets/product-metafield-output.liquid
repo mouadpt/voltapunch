@@ -1,0 +1,182 @@
+{% doc %}
+  Renders a single metafield (one or list), without any additional markup.
+
+  @param {object} product - Product object
+  @param {string} metafield - A metafield namespace.key path.
+
+  @example
+  {% render 'product-metafield-output', product: product, metafield: block.settings.metafield %}
+{% enddoc %}
+
+{% liquid
+  assign fields = metafield | strip | split: '.'
+  assign field_source = fields[-3]
+  assign field_ns = fields[-2]
+  assign field_path = fields[-1]
+
+  assign metaobject_sections = field_path | split: '>' | compact
+
+  assign field_key = metaobject_sections[0]
+
+  if field_source == 'variant'
+    assign metafield_object = product.selected_or_first_available_variant.metafields[field_ns][field_key]
+  else
+    assign metafield_object = product.metafields[field_ns][field_key]
+  endif
+
+  if metaobject_sections.size > 1
+    for metaobject_section in metaobject_sections
+      if forloop.first
+        # Skip first, i.e. field_key, which we already used above.
+        continue
+      endif
+      assign metafield_object = metafield_object.value[metaobject_section]
+    endfor
+  endif
+
+  assign type_parts = metafield_object.type | split: '.'
+  # Metafield type, without the "list." part.
+  assign metafield_type = type_parts.last
+%}
+
+{% case metafield_object.type %}
+  {% when 'list.article_reference',
+    'list.collection_reference',
+    'list.page_reference',
+    'list.product_reference',
+    'list.variant_reference'
+  %}
+    <ul class="metafield-array metafield-{{ metafield_type }}_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          <a href="{{ item.url }}" class="metafield-{{ metafield_type }}">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% when 'boolean' %}
+    {% if metafield_object.value == true %}
+      {% render 'icons', icon: 'check' %}
+    {% elsif metafield_object.value == false %}
+      {% render 'icons', icon: 'cross' %}
+    {% endif %}
+  {% when 'color' %}
+    <span
+      class="metafield-color"
+      style="--metafield-color: {{ metafield_object.value | escape }};"
+    >
+      <span class="metafield-color-swatch"></span>
+      {{ metafield_object.value -}}
+    </span>
+  {% when 'list.color' %}
+    <ul class="metafield-array metafield-color_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          <span
+            class="metafield-color"
+            style="--metafield-color: {{ item | escape }};"
+          >
+            <span class="metafield-color-swatch"></span>
+            {{ item -}}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% when 'date' %}
+    {{ metafield_object.value | time_tag: format: 'metafield_date' }}
+  {% when 'list.date' %}
+    <ul class="metafield-array metafield-date_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          {{ item | time_tag: format: 'metafield_date' }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% when 'date_time' %}
+    {{ metafield_object.value | time_tag: format: 'metafield_datetime' }}
+  {% when 'list.date_time' %}
+    <ul class="metafield-array metafield-date_time_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          {{ item | time_tag: format: 'metafield_datetime' }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% when 'file_reference' %}
+    <a href="{{ metafield_object | file_url }}" target="_blank" rel="noopener">
+      <span class="product-info-details-item-icon-download">
+        {% render 'icons', icon: 'download' %}
+      </span>
+      {{ 'products.product.details.download' | t }}
+    </a>
+  {% when 'list.file_reference' %}
+    <ul class="metafield-array metafield-file_reference_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          <a href="{{ item | file_url }}" target="_blank" rel="noopener">
+            <span class="product-info-details-item-icon-download">
+              {% render 'icons', icon: 'download' %}
+            </span>
+            {{ 'products.product.details.download_num' | t: index: forloop.index }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% when 'link' %}
+    <a href="{{ metafield_object.value.url }}" target="_blank" rel="noopener">
+      {{ metafield_object.value.text }}
+    </a>
+  {% when 'list.link' %}
+    <ul class="metafield-array metafield-link_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          <a href="{{ item.url }}" target="_blank" rel="noopener">
+            {{ item.text }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% when 'url' %}
+    <a href="{{ metafield_object.value }}" target="_blank" rel="noopener">
+      {{ 'products.product.details.link' | t }}
+    </a>
+  {% when 'list.url' %}
+    <ul class="metafield-array metafield-url_field-array">
+      {% for item in metafield_object.value %}
+        <li>
+          <a href="{{ item }}" target="_blank" rel="noopener">
+            {{ 'products.product.details.link_num' | t: index: forloop.index }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% if metafield_object.list? == false %}
+      {{ metafield_object | metafield_tag }}
+    {% else %}
+      {% liquid
+        assign type_parts = metafield_object.type | split: '.'
+        assign metafield_type = type_parts.last
+      %}
+      {% capture metafield_tag_output %}{{- metafield_object | metafield_tag -}}{% endcapture %}
+      {% if metafield_tag_output != blank %}
+        {{ metafield_tag_output }}
+      {% else %}
+        {% # white-space: normal %}
+        {% capture list_metafield_tag_output %}
+          {% for item in metafield_object.value %}
+            <li>
+              {{ item }}
+            </li>
+          {% endfor %}
+        {% endcapture %}
+        {% assign list_metafield_tag_output = list_metafield_tag_output | strip %}
+        {% if list_metafield_tag_output != blank %}
+          <ul class="metafield-{{ metafield_type }}_field-array">
+            {{ list_metafield_tag_output }}
+          </ul>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+{% endcase %}

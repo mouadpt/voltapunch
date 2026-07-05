@@ -1,0 +1,98 @@
+{% layout none %}
+{%- assign text_direction = 'localization.text_direction' | t | downcase -%}
+<!doctype html>
+<html
+  lang="{{ request.locale.iso_code }}"
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  {% if text_direction == 'rtl' %}
+    dir="{{ text_direction }}"
+  {% endif %}
+>
+  <head>
+    {% if settings.favicon != blank %}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {% endif %}
+
+    <meta charset="utf-8">
+
+    {%- assign formatted_initial_value = gift_card.initial_value
+      | money_without_trailing_zeros
+      | strip_html
+    -%}
+
+    <title>
+      {{ 'gift_cards.issued.title' | t: value: formatted_initial_value, shop: shop.name }}
+    </title>
+    <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {% render 'head-fonts' %}
+    {% render 'head-theme-variables' %}
+    {% render 'head-color-schemes' %}
+
+    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
+
+    {% render 'head-critical' %}
+
+    <style>
+      @media print {
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+
+    {{ content_for_header }}
+
+    <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
+  </head>
+
+  <body class="template-{{ template.name }}">
+    <header class="gift-card-site-title">
+      <h1>{{ shop.name }}</h1>
+    </header>
+
+    {% section 'gift-card' %}
+
+    <div hidden>
+      <span id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</span>
+    </div>
+  </body>
+</html>
+
+<script>
+  var string = { qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
+  document.addEventListener('DOMContentLoaded', function() {
+    new QRCode( document.querySelector('.gift-card-qr-code'), {
+      text: document.querySelector('.gift-card-qr-code').dataset.identifier,
+      width: 120,
+      height: 120,
+      imageAltText: string.qrImageAlt
+    });
+  });
+
+  var template = document.getElementsByTagName("template")[0];
+  var clonedTemplate = template.content.cloneNode(true);
+
+  var isMessageDisplayed = false;
+  document
+    .querySelector('.gift-card-copy-link')
+    .addEventListener('click', () => {
+      navigator.clipboard.writeText(document.querySelector('.gift-card-number').value).then(function () {
+        if (!isMessageDisplayed) {
+          document.querySelector('.gift-card-copy-success').appendChild(clonedTemplate);
+          isMessageDisplayed = true;
+          document.querySelector('.gift-card-copy-code').classList.add('success');
+        }
+      });
+    });
+</script>

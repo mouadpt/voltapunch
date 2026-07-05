@@ -1,0 +1,89 @@
+{% doc %}
+  Renders a product media thumbnails
+
+  @param {object} section - Section object.
+  @param {object} product - Product object.
+  @param {object} variant_images - Array of variant images.
+  @param {object} featured_media - Featured media object.
+
+  @example
+  {% render 'product-media-thumbnails', product: product, section: section, variant_images: variant_images, featured_media: featured_media %}
+{% enddoc %}
+
+{%- assign media_position = 1 -%}
+<div class="product-media-scroll-wrap">
+  <div class="product-media-scroller" data-navigation="{{ section.settings.thumbnail_navigation }}">
+    <div class="product-media-thumbnails">
+      <div
+        class="
+          product-media-thumbnail product-media is-active
+          {% if section.settings.hide_variants and variant_images contains featured_media.src %} product-media-thumbnail-variant{% endif %}
+        "
+        data-media-id="{{ featured_media.id }}"
+      >
+        {% render 'product-gallery-media-thumbnail',
+          media: featured_media,
+          position: media_position,
+          media_width: 400,
+          lazyload: false
+        %}
+      </div>
+
+      {% for media in product.media %}
+        {%- if media.id != featured_media.id -%}
+          {%- assign media_position = media_position | default: 1 | plus: 1 -%}
+          <div
+            class="
+              product-media-thumbnail product-media
+              {% if section.settings.hide_variants and variant_images contains media.src %} product-media-thumbnail-variant{% endif %}
+            "
+            data-media-id="{{ media.id }}"
+          >
+            {% render 'product-gallery-media-thumbnail',
+              media: media,
+              position: media_position,
+              media_width: 400,
+              lazyload: true
+            %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if section.settings.thumbnail_navigation %}
+    <product-thumbnail-navigation
+      for="MediaGallery-{{ section.id }}"
+      class="hidden"
+    >
+      <div class="pill-nav pill-nav-slider media-pill-nav-slider">
+        <button
+          class="pill-nav-item pill-nav-item-prev pill-nav-item-disabled focus-none js-prev"
+          aria-disabled="true"
+        >
+          <span class="visually-hidden">
+            {{- 'sections.slideshow.previous_slide' | t -}}
+          </span>
+          {% if section.settings.thumbnails_position == 'bottom' %}
+            {% render 'angle', direction: 'left' %}
+          {% else %}
+            {% render 'angle', direction: 'up' %}
+          {% endif %}
+        </button>
+        <button
+          class="pill-nav-item pill-nav-item-next js-next"
+          aria-disabled="false"
+        >
+          <span class="visually-hidden">
+            {{- 'sections.slideshow.next_slide' | t -}}
+          </span>
+          {% if section.settings.thumbnails_position == 'bottom' %}
+            {% render 'angle', direction: 'right' %}
+          {% else %}
+            {% render 'angle', direction: 'down' %}
+          {% endif %}
+        </button>
+      </div>
+    </product-thumbnail-navigation>
+  {% endif %}
+</div>
