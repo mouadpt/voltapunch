@@ -135,9 +135,9 @@
       "settings": {
         "payment_enable": true,
         "footer_links": "",
-        "enable_language_selector": false,
-        "enable_country_selector": false,
-        "enable_country_selector_flag": false,
+        "enable_language_selector": true,
+        "enable_country_selector": true,
+        "enable_country_selector_flag": true,
         "show_social": true,
         "show_colored_icons": false,
         "enable_follow_on_shop": true,
