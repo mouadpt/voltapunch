@@ -166,6 +166,7 @@
         "collection-2",
         "collection-3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "md",
@@ -555,6 +556,7 @@
         "collection-5",
         "collection-6"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Categorias populares",
         "heading_size": "md",
@@ -585,6 +587,7 @@
     },
     "collection-grid": {
       "type": "collection-grid",
+      "disabled": true,
       "settings": {
         "heading": "Também populares",
         "heading_size": "md",
@@ -774,6 +777,7 @@
         "element-3",
         "element-4"
       ],
+      "disabled": true,
       "name": "t:sections.scrolling_elements.preset.name",
       "settings": {
         "speed": 30,
