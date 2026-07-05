@@ -197,6 +197,7 @@
         },
         "reviews": {
           "type": "reviews",
+          "disabled": true,
           "settings": {
             "expanded": false,
             "show_count": false
