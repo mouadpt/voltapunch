@@ -227,6 +227,7 @@
         "filter-2",
         "filter-3"
       ],
+      "disabled": true,
       "name": "t:sections.filters.presets.name",
       "settings": {
         "heading": "",
@@ -260,11 +261,11 @@
         "height": 1,
         "width": 1420,
         "color_background": "#dadada",
-        "spacing_mode": "desktop",
+        "spacing_mode": "mobile",
         "spacing_top": 0,
         "spacing_bottom": 0,
-        "spacing_top_mobile": 48,
-        "spacing_bottom_mobile": 48
+        "spacing_top_mobile": 0,
+        "spacing_bottom_mobile": 0
       }
     },
     "brands": {
