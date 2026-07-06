@@ -1356,6 +1356,7 @@
         "text",
         "button"
       ],
+      "disabled": true,
       "name": "t:sections.media_with_text.presets.name",
       "settings": {
         "video_url": "",
