@@ -337,6 +337,21 @@
       "settings": {
         "full_width": false
       }
+    },
+    "178847009142c2ec5d": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_G4z6wB": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_G4z6wB"
+      ],
+      "settings": {
+        "full_width": false
+      }
     }
   },
   "order": [
@@ -344,6 +359,7 @@
     "bulk-order",
     "product-recommendations",
     "recently-viewed-products",
-    "17884668240701edc8"
+    "17884668240701edc8",
+    "178847009142c2ec5d"
   ]
 }
