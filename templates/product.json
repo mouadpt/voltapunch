@@ -287,6 +287,7 @@
     },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
+      "disabled": true,
       "settings": {
         "products_to_show": 5,
         "heading": "Vistos recentemente",
