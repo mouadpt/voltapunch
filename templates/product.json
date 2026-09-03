@@ -75,7 +75,7 @@
           "settings": {
             "show_quantity": true,
             "show_add_to_cart": true,
-            "show_buy_now": true,
+            "show_buy_now": false,
             "show_gift_card_recipient": false,
             "button_color_scheme": "background-1",
             "show_bottom_divider": false
