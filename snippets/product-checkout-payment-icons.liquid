@@ -1,15 +1,31 @@
 {% comment %}
-  Always-visible payment methods displayed directly below the product checkout button.
+  Original payment-provider artwork displayed directly below the product checkout button.
 {% endcomment %}
 <div class="checkout-payment-methods" aria-label="Métodos de pagamento aceites">
   <ul class="checkout-payment-methods-list" role="list">
-    <li class="checkout-payment-method checkout-payment-method-mbway" aria-label="MB WAY">MB WAY</li>
-    <li class="checkout-payment-method checkout-payment-method-multibanco" aria-label="Multibanco">MULTIBANCO</li>
-    <li class="checkout-payment-method checkout-payment-method-klarna" aria-label="Klarna">Klarna.</li>
-    <li class="checkout-payment-method checkout-payment-method-visa" aria-label="Visa">VISA</li>
-    <li class="checkout-payment-method checkout-payment-method-mastercard" aria-label="Mastercard">
-      <span aria-hidden="true"></span>
+    <li class="checkout-payment-method">
+      {{ 'mbway' | payment_type_svg_tag: class: 'icon' }}
     </li>
-    <li class="checkout-payment-method checkout-payment-method-paypal" aria-label="PayPal">PayPal</li>
+    <li class="checkout-payment-method checkout-payment-method-multibanco">
+      <img
+        src="{{ 'multibanco.svg' | asset_url }}"
+        width="38"
+        height="45"
+        loading="lazy"
+        alt="Multibanco"
+      >
+    </li>
+    <li class="checkout-payment-method">
+      {{ 'klarna' | payment_type_svg_tag: class: 'icon' }}
+    </li>
+    <li class="checkout-payment-method">
+      {{ 'visa' | payment_type_svg_tag: class: 'icon' }}
+    </li>
+    <li class="checkout-payment-method">
+      {{ 'master' | payment_type_svg_tag: class: 'icon' }}
+    </li>
+    <li class="checkout-payment-method">
+      {{ 'paypal' | payment_type_svg_tag: class: 'icon' }}
+    </li>
   </ul>
 </div>

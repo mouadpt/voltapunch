@@ -2148,72 +2148,17 @@ media-zoom {
 }
 
 .checkout-payment-method {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  min-width: 4.6rem;
-  height: 2.8rem;
-  padding: 0.4rem 0.7rem;
-  overflow: hidden;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.16);
-  border-radius: 0.4rem;
-  background: #fff;
-  color: #111;
-  font-size: 1rem;
-  font-weight: 800;
-  line-height: 1;
-  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
 }
 
-.checkout-payment-method-mbway {
-  color: #008d96;
-}
-
-.checkout-payment-method-multibanco {
-  color: #1d4f91;
-  font-size: 0.75rem;
-}
-
-.checkout-payment-method-klarna {
-  border-color: #ffb3c7;
-  background: #ffb3c7;
-}
-
-.checkout-payment-method-visa {
-  color: #172b85;
-  font-size: 1.25rem;
-  font-style: italic;
-}
-
-.checkout-payment-method-mastercard span {
-  position: relative;
-  width: 3.2rem;
-  height: 1.8rem;
-}
-
-.checkout-payment-method-mastercard span::before,
-.checkout-payment-method-mastercard span::after {
-  position: absolute;
-  top: 0;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 50%;
-  content: "";
-}
-
-.checkout-payment-method-mastercard span::before {
-  left: 0;
-  background: #eb001b;
-}
-
-.checkout-payment-method-mastercard span::after {
-  right: 0;
-  background: rgba(247, 158, 27, 0.9);
-}
-
-.checkout-payment-method-paypal {
-  color: #003087;
+.checkout-payment-method .icon,
+.checkout-payment-method img {
+  display: block;
+  width: 3.8rem;
+  height: 2.4rem;
+  object-fit: contain;
 }
 
 /* BLOCK: Table
