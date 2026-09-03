@@ -575,6 +575,7 @@
                               {% if show_dynamic_checkout %}
                                 <div class="product-actions-buy-now">
                                   {{ form | payment_button }}
+                                  {% render 'product-checkout-payment-icons' %}
                                 </div>
                               {% endif %}
                             {% endif %}
