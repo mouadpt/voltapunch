@@ -21,7 +21,7 @@
             "show_barcode": false,
             "barcode_label": "Código de barras",
             "show_rating": true,
-            "hide_empty_star_rating": false,
+            "hide_empty_star_rating": true,
             "show_custom_badges": false,
             "show_bottom_divider": true
           }
